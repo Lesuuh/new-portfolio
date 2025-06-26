@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   ArrowUpRight,
+  Download,
   ExternalLink,
   Github,
   Linkedin,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Porfolio = () => {
   const heroTechStack = [
@@ -133,6 +135,37 @@ const Porfolio = () => {
 
   return (
     <div className=" bg-white text-black min-h-screen [family-name:var(--font-geist-sans)]">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="font-medium text-lg">Lesuuh</div>
+            <div className="hidden md:flex items-center space-x-8">
+              {["hero", "about", "projects", "contact"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`text-sm transition-colors hover:text-black ${
+                    activeSection === section
+                      ? "text-black font-medium"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              ))}
+            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="bg-black text-white border-black hover:bg-gray-800"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Resume
+            </Button>
+          </div>
+        </div>
+      </nav>
       <main className="w-full py-5">
         {/* Hero  section*/}
         <section
@@ -326,10 +359,14 @@ const Porfolio = () => {
                   ))}
                 </div>
               </div>
-              <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-gray-900 to-gray-600 flex items-center justify-center text-white text-6xl font-bold">
-                  AC
-                </div>
+              <div className="">
+                <Image
+                  src="/images/portfolio-pic.jpg"
+                  alt="Profile-pic"
+                  width={400}
+                  height={400}
+                  className="rounded-sm border-8 border-white"
+                />
               </div>
             </div>
           </div>
@@ -461,20 +498,32 @@ const Porfolio = () => {
                 lesuuh01@gmail.com
               </Button>
               <div className="flex space-x-4">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="border-gray-300 hover:border-black"
+                <Link
+                  href={"https://github.com/Lesuuh"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Github className="w-4 h-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  className="border-gray-300 hover:border-black"
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="border-gray-300 hover:border-black"
+                  >
+                    <Github className="w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link
+                  href={"google.com"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <Linkedin className="w-4 h-4" />
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="border-gray-300 hover:border-black"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

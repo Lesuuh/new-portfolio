@@ -8,8 +8,8 @@ import {
   Download,
   ExternalLink,
   Github,
-  Linkedin,
   Mail,
+  Twitter,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -17,83 +17,110 @@ import Link from "next/link";
 
 const Porfolio = () => {
   const heroTechStack = [
+    "JavaScript",
+    "TypeScript",
     "React",
     "Next.js",
-    "TypeScript",
-    "Tailwind",
-    "Node.js",
-    "PostgreSQL",
+    "Supabase",
+    "Tailwindcss",
   ];
+
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description:
-        "A modern e-commerce platform built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.",
-      tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
-      status: "Completed",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
-      status: "In Progress",
-    },
-    {
-      title: "Analytics Dashboard",
+      title: "Intervue - AI-Interview",
       description:
         "Data visualization dashboard for business analytics with interactive charts, real-time data updates, and export functionality.",
       tech: ["Vue.js", "D3.js", "Express", "Redis", "Chart.js"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
-      status: "Completed",
-    },
-    {
-      title: "AI Chat Interface",
-      description:
-        "Modern chat interface with AI integration, real-time messaging, and smart response suggestions.",
-      tech: ["React", "OpenAI", "WebSocket", "Node.js"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
+      image: "/images/intervue.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/noa-web",
+      live: "https://noacbt.netlify.app/",
       status: "In Progress",
     },
     {
-      title: "Portfolio Website",
+      title: "Shop.co - E-Commerce Platform",
       description:
-        "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
+        "A modern e-commerce platform built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.",
+      tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
+      image: "/images/shop.co.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/shop.co.git",
+      live: "https://shopnownow.netlify.app/",
       status: "Completed",
     },
     {
-      title: "Weather App",
+      title: "Tandem Logistics",
       description:
-        "Beautiful weather application with location-based forecasts, interactive maps, and detailed weather data.",
-      tech: ["React", "Weather API", "Mapbox", "Chart.js"],
-      image: "/placeholder.svg?height=200&width=300",
-      github: "#",
-      live: "#",
+        "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
+      tech: ["React", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
+      image: "/images/tandem.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/tandem-logistics",
+      live: "https://tandemlogistics.netlify.app/",
+      status: "Completed",
+    },
+    {
+      title: "NOA CBT Exam Prep",
+      description:
+        "Data visualization dashboard for business analytics with interactive charts, real-time data updates, and export functionality.",
+      tech: ["Vue.js", "D3.js", "Express", "Redis", "Chart.js"],
+      image: "/images/noa.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/noa-web",
+      live: "https://noacbt.netlify.app/",
+      status: "In Progress",
+    },
+    {
+      title: "MovieFreak",
+      description:
+        "Modern chat interface with AI integration, real-time messaging, and smart response suggestions.",
+      tech: ["React", "OpenAI", "WebSocket", "Node.js"],
+      image: "/images/mfreak.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/moviefreak",
+      live: "https://m-freak.netlify.app",
+      status: "Completed",
+    },
+
+    {
+      title: "Clicon E-commerce",
+      description:
+        "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/images/clicon.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/SJ-portfolio",
+      live: "https://sj-portfolio-yt.netlify.app/",
+      status: "In Progress",
+    },
+    {
+      title: "SJ Website",
+      description:
+        "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/images/sj.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/SJ-portfolio",
+      live: "https://sj-portfolio-yt.netlify.app/",
+      status: "Completed",
+    },
+    {
+      title: "Homigon - Real Estate",
+      description:
+        "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      image: "/images/homigon.png?height=200&width=300",
+      github: "https://github.com/Lesuuh/test-homigon",
+      live: "https://lesuuh.github.io/test-homigon/",
       status: "Completed",
     },
   ];
+
+  const githubRepo = "https://github.com/Lesuuh";
+  //   const facebook = "https://facebook.com/lesuuh.uehkabari";
+  // const linkedin = "https://www.linkedin.com/in/lesuuh/";
+  const twitter = "https://twitter.com/UKLesuuh";
 
   const skills = [
     "JavaScript",
     "TypeScript",
     "React",
     "Next.js",
-    "Node.js",
     "Supabase",
+    "Tailwindcss",
     "Firebase",
     "Zustand",
     "React/Tanstack Query",
@@ -371,8 +398,12 @@ const Porfolio = () => {
             </div>
           </div>
         </section>
+
         {/* Projects Section */}
-        <section id="projects" className="py-20 px-6">
+        <section
+          id="projects"
+          className="py-20 px-6 animate-fade-in animation-delay-400"
+        >
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
@@ -392,8 +423,7 @@ const Porfolio = () => {
                     <div className="relative">
                       <div className="aspect-video bg-gray-100 overflow-hidden">
                         <Image
-                          width={100}
-                          height={100}
+                          fill
                           src={project.image || "/placeholder.svg"}
                           alt={project.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
@@ -446,24 +476,40 @@ const Porfolio = () => {
                       </div>
 
                       <div className="flex space-x-3">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 border-gray-300 hover:border-black text-xs"
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex-1  "
                         >
-                          <Github className="w-3 h-3 mr-1" />
-                          Code
-                        </Button>
-                        <Button
-                          size="sm"
-                          className="flex-1 bg-black text-white hover:bg-gray-800 text-xs"
-                          disabled={project.status === "In Progress"}
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="flex-1 w-full border-gray-300 hover:border-black text-xs"
+                          >
+                            <Github className="w-3 h-3 mr-1" />
+                            Code
+                          </Button>
+                        </Link>
+                        <Link
+                          href={
+                            project.status === "Completed" ? project.live : ""
+                          }
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-full flex-1"
                         >
-                          <ExternalLink className="w-3 h-3 mr-1" />
-                          {project.status === "In Progress"
-                            ? "Coming Soon"
-                            : "Live Demo"}
-                        </Button>
+                          <Button
+                            size="sm"
+                            className="flex-1 w-full bg-black text-white hover:bg-gray-800 text-xs"
+                            disabled={project.status === "In Progress"}
+                          >
+                            <ExternalLink className="w-3 h-3 mr-1" />
+                            {project.status === "In Progress"
+                              ? "Coming Soon"
+                              : "Live Demo"}
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </CardContent>
@@ -499,7 +545,7 @@ const Porfolio = () => {
               </Button>
               <div className="flex space-x-4">
                 <Link
-                  href={"https://github.com/Lesuuh"}
+                  href={githubRepo}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -511,17 +557,13 @@ const Porfolio = () => {
                     <Github className="w-4 h-4" />
                   </Button>
                 </Link>
-                <Link
-                  href={"google.com"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href={twitter} target="_blank" rel="noopener noreferrer">
                   <Button
                     variant="outline"
                     size="icon"
                     className="border-gray-300 hover:border-black"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <Twitter className="w-4 h-4" />
                   </Button>
                 </Link>
               </div>

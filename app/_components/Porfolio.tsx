@@ -80,7 +80,7 @@ const Porfolio = () => {
     {
       title: "Clicon E-commerce",
       description:
-        "RClicon – An eCommerce web app for exploring and purchasing electronics. Users can browse products by category, view detailed product pages, add items to a cart or wishlist, and manage their orders. Supports both guest and registered users. Built with React, TypeScript, Tailwind CSS, and JSON Server.",
+        "Clicon – An eCommerce web app for exploring and purchasing electronics. Users can browse products by category, view detailed product pages, add items to a cart or wishlist, and manage their orders. Supports both guest and registered users. Built with React, TypeScript, Tailwind CSS, and JSON Server.",
       tech: ["React", "Typescript", "Firebase", "Zustand", "Tailwind CSS"],
       image: "/images/clicon.png?height=200&width=300",
       github: "https://github.com/Lesuuh/clicon",
@@ -203,7 +203,7 @@ const Porfolio = () => {
         {/* Hero  section*/}
         <section
           id="hero"
-          className="min-h-screen flex items-center justify-center px-6 relative"
+          className="min-h-screen pt-16 lg:pt-0 flex items-center justify-center px-6 relative"
         >
           {/* Subtle Grid Background */}
           <div className="absolute inset-0 -z-10">

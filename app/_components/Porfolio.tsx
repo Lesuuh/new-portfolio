@@ -550,7 +550,7 @@ const Porfolio = () => {
               projects. Let&apos;s discuss how we can bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a href="mailto:lesuuh@example.com">
+              <a href="mailto:lesuuh01@gmail.com">
                 <Button className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
                   <Mail className="w-4 h-4 mr-2" />
                   lesuuh01@gmail.com

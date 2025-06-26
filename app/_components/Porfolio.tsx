@@ -29,10 +29,10 @@ const Porfolio = () => {
     {
       title: "Intervue - AI-Interview",
       description:
-        "Data visualization dashboard for business analytics with interactive charts, real-time data updates, and export functionality.",
-      tech: ["Vue.js", "D3.js", "Express", "Redis", "Chart.js"],
+        "Intervue – A web platform that helps recruiters create and schedule AI-powered interviews, share invite links with candidates, and receive automated scoring and hiring recommendations. Built with React, TypeScript, Tailwind CSS, and Supabase.",
+      tech: ["Nextjs", "Vapi", "Supabase", "OpenAI", "Zustand", "Tailwind CSS"],
       image: "/images/intervue.png?height=200&width=300",
-      github: "https://github.com/Lesuuh/noa-web",
+      github: "https://github.com/Lesuuh/intervue",
       live: "https://noacbt.netlify.app/",
       status: "In Progress",
     },
@@ -40,7 +40,7 @@ const Porfolio = () => {
       title: "Shop.co - E-Commerce Platform",
       description:
         "A modern e-commerce platform built with Next.js, featuring real-time inventory, payment processing, and admin dashboard.",
-      tech: ["Next.js", "TypeScript", "Stripe", "Prisma", "PostgreSQL"],
+      tech: ["React", "JavaScipt", "Paystack", "ContextAPI", "Tailwind CSS"],
       image: "/images/shop.co.png?height=200&width=300",
       github: "https://github.com/Lesuuh/shop.co.git",
       live: "https://shopnownow.netlify.app/",
@@ -49,8 +49,8 @@ const Porfolio = () => {
     {
       title: "Tandem Logistics",
       description:
-        "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      tech: ["React", "Node.js", "Socket.io", "MongoDB", "Tailwind CSS"],
+        "Tandem Logistics – A responsive landing page for a logistics company, highlighting core services, company values, and contact options. Designed to build trust and drive inquiries with a clean layout and clear messaging. ",
+      tech: ["React", "Tailwind CSS"],
       image: "/images/tandem.png?height=200&width=300",
       github: "https://github.com/Lesuuh/tandem-logistics",
       live: "https://tandemlogistics.netlify.app/",
@@ -59,8 +59,8 @@ const Porfolio = () => {
     {
       title: "NOA CBT Exam Prep",
       description:
-        "Data visualization dashboard for business analytics with interactive charts, real-time data updates, and export functionality.",
-      tech: ["Vue.js", "D3.js", "Express", "Redis", "Chart.js"],
+        "NOA CBT Web App – A computer-based testing platform for the National Orientation Agency’s promotional exams. Built with React, TypeScript, and Tailwind CSS, it features timed multiple-choice tests, instant grading, answer review, and a user dashboard to track exam history and results.",
+      tech: ["React", "Typescript", "Firebase", "Tailwind CSS"],
       image: "/images/noa.png?height=200&width=300",
       github: "https://github.com/Lesuuh/noa-web",
       live: "https://noacbt.netlify.app/",
@@ -69,8 +69,8 @@ const Porfolio = () => {
     {
       title: "MovieFreak",
       description:
-        "Modern chat interface with AI integration, real-time messaging, and smart response suggestions.",
-      tech: ["React", "OpenAI", "WebSocket", "Node.js"],
+        "MovieFreak – A sleek movie discovery app that lets users search for movies and browse the latest releases. Built with React, TypeScript, and Tailwind CSS, it integrates with a movie API to display real-time data including titles, posters, and release info.",
+      tech: ["React", "theMovieDB API", "Tailwind CSS"],
       image: "/images/mfreak.png?height=200&width=300",
       github: "https://github.com/Lesuuh/moviefreak",
       live: "https://m-freak.netlify.app",
@@ -80,18 +80,18 @@ const Porfolio = () => {
     {
       title: "Clicon E-commerce",
       description:
-        "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+        "RClicon – An eCommerce web app for exploring and purchasing electronics. Users can browse products by category, view detailed product pages, add items to a cart or wishlist, and manage their orders. Supports both guest and registered users. Built with React, TypeScript, Tailwind CSS, and JSON Server.",
+      tech: ["React", "Typescript", "Firebase", "Zustand", "Tailwind CSS"],
       image: "/images/clicon.png?height=200&width=300",
-      github: "https://github.com/Lesuuh/SJ-portfolio",
-      live: "https://sj-portfolio-yt.netlify.app/",
+      github: "https://github.com/Lesuuh/clicon",
+      live: "/",
       status: "In Progress",
     },
     {
       title: "SJ Website",
       description:
         "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      tech: ["React", "Tailwind CSS"],
       image: "/images/sj.png?height=200&width=300",
       github: "https://github.com/Lesuuh/SJ-portfolio",
       live: "https://sj-portfolio-yt.netlify.app/",
@@ -101,7 +101,7 @@ const Porfolio = () => {
       title: "Homigon - Real Estate",
       description:
         "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-      tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      tech: ["Javascript", "HTML5", "CSS3"],
       image: "/images/homigon.png?height=200&width=300",
       github: "https://github.com/Lesuuh/test-homigon",
       live: "https://lesuuh.github.io/test-homigon/",
@@ -182,14 +182,20 @@ const Porfolio = () => {
                 </button>
               ))}
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              className="bg-black text-white border-black hover:bg-gray-800"
+            <a
+              href="/_1LesuuhNewCV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Resume
-            </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-black text-white border-black hover:bg-gray-800"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </Button>
+            </a>
           </div>
         </div>
       </nav>
@@ -258,7 +264,7 @@ const Porfolio = () => {
                   </Button>
                 </div>
               </div>
-              {/* Righr section */}
+              {/* Right section */}
               <div className="relative lg:block ">
                 <div className="relative">
                   {/* Main Card */}
@@ -293,6 +299,7 @@ const Porfolio = () => {
                             <span className="text-yellow-300">
                               &apos;Next.js&apos;
                             </span>
+                            ,{" "}
                             <span className="text-yellow-300">
                               &apos;Supabase&apos;
                             </span>
@@ -365,21 +372,25 @@ const Porfolio = () => {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  I&apos;m a passionate frontend developer with 5+ years of
-                  experience creating digital experiences that users love. I
-                  specialize in React, Next.js, and modern web technologies.
+                  I&apos;m a dedicated frontend developer with a strong focus on
+                  building functional and user-friendly web applications. I
+                  specialize in React, Tailwind CSS, and I&apos;m actively
+                  expanding my skills with Next.js and modern web tools.
                 </p>
                 <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  When I&apos;m not coding, you&apos;ll find me exploring new
-                  design trends, contributing to open source projects, or
-                  sharing knowledge with the developer community.
+                  I enjoy solving real-world problems through code, exploring
+                  practical UI patterns, and building projects that showcase
+                  clean logic and useful features. Outside of coding, I love
+                  learning new tech, collaborating with other developers, and
+                  refining my skills through hands-on work.
                 </p>
+
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
                     <Badge
                       key={skill}
-                      variant="secondary"
-                      className="bg-white border border-gray-200"
+                      variant="default"
+                      className=" border border-gray-200"
                     >
                       {skill}
                     </Badge>
@@ -456,9 +467,9 @@ const Porfolio = () => {
                       </p>
 
                       <div className="flex flex-wrap gap-1 mb-4">
-                        {project.tech.slice(0, 3).map((tech) => (
+                        {project.tech.slice(0, 4).map((tech, index) => (
                           <Badge
-                            key={tech}
+                            key={index}
                             variant="outline"
                             className="text-xs border-gray-300 text-gray-600"
                           >
@@ -539,10 +550,12 @@ const Porfolio = () => {
               projects. Let&apos;s discuss how we can bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
-                <Mail className="w-4 h-4 mr-2" />
-                lesuuh01@gmail.com
-              </Button>
+              <a href="mailto:lesuuh@example.com">
+                <Button className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
+                  <Mail className="w-4 h-4 mr-2" />
+                  lesuuh01@gmail.com
+                </Button>
+              </a>
               <div className="flex space-x-4">
                 <Link
                   href={githubRepo}

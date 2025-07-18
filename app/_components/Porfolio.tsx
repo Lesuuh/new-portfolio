@@ -33,8 +33,8 @@ const Porfolio = () => {
       tech: ["Nextjs", "Vapi", "Supabase", "OpenAI", "Zustand", "Tailwind CSS"],
       image: "/images/intervue.png?height=200&width=300",
       github: "https://github.com/Lesuuh/intervue",
-      live: "https://noacbt.netlify.app/",
-      status: "In Progress",
+      live: "https://intervue-test.vercel.app/",
+      status: "Completed",
     },
     {
       title: "Shop.co - E-Commerce Platform",

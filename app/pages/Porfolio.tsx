@@ -134,10 +134,10 @@ const Porfolio = () => {
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                         <span>Available for hire and projects</span>
                       </div>
-                      <div className="flex items-center space-x-2">
+                      {/* <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                         <span>Based in Portharcourt</span>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                   {/* CTA Buttons */}
@@ -329,7 +329,7 @@ const Porfolio = () => {
                   <AnimateCard key={index}>
                     <Card
                       onClick={() => handleViewProject(project.id)}
-                      className="group flex flex-col h-full overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                      className="group cursor-pointer flex flex-col h-full overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                     >
                       <CardContent className="p-0 flex flex-col flex-1">
                         <div className="relative">
@@ -392,7 +392,8 @@ const Porfolio = () => {
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="w-full flex-1  "
+                              className="w-full flex-1"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               <Button
                                 variant="outline"
@@ -403,6 +404,7 @@ const Porfolio = () => {
                                 Code
                               </Button>
                             </Link>
+
                             <Link
                               href={
                                 project.status === "Completed"
@@ -412,11 +414,13 @@ const Porfolio = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               className="w-full flex-1"
+                              onClick={(e) => e.stopPropagation()}
                             >
                               <Button
                                 size="sm"
                                 className="flex-1 w-full bg-black text-white hover:bg-gray-800 text-xs"
                                 disabled={project.status === "In Progress"}
+                                onClick={(e) => e.stopPropagation()}
                               >
                                 <ExternalLink className="w-3 h-3 mr-1" />
                                 {project.status === "In Progress"
@@ -432,7 +436,7 @@ const Porfolio = () => {
                 ))}
               </div>
 
-              <div className="text-center mt-12">
+              {/* <div className="text-center mt-12">
                 <Button
                   variant="outline"
                   className="border-gray-300 hover:border-black"
@@ -440,7 +444,7 @@ const Porfolio = () => {
                   View All Projects
                   <ArrowUpRight className="w-4 h-4 ml-2" />
                 </Button>
-              </div>
+              </div> */}
             </div>
           </section>
         </ScrollReveal>

@@ -50,6 +50,11 @@ export const metadata: Metadata = {
     description: "Check out my latest frontend work using React and Next.js.",
     images: ["/portfolio-pic.jpg"],
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({

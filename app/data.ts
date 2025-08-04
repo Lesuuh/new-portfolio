@@ -20,6 +20,17 @@ export const projects = [
     status: "Completed",
   },
   {
+    id: 4,
+    title: "NOA CBT Exam Prep",
+    description:
+      "NOA CBT Web App – A computer-based testing platform for the National Orientation Agency’s promotional exams. Built with React, TypeScript, and Tailwind CSS, it features timed multiple-choice tests, instant grading, answer review, and a user dashboard to track exam history and results.",
+    tech: ["React", "Typescript", "Firebase", "Tailwind CSS"],
+    image: "/images/noa.png?height=200&width=300",
+    github: "https://github.com/Lesuuh/noa-web",
+    live: "https://noa-web.vercel.app/",
+    status: "Completed",
+  },
+  {
     id: 2,
     title: "Shop.co - E-Commerce Platform",
     description:
@@ -41,17 +52,7 @@ export const projects = [
     live: "https://tandemlogistics.netlify.app/",
     status: "Completed",
   },
-  {
-    id: 4,
-    title: "NOA CBT Exam Prep",
-    description:
-      "NOA CBT Web App – A computer-based testing platform for the National Orientation Agency’s promotional exams. Built with React, TypeScript, and Tailwind CSS, it features timed multiple-choice tests, instant grading, answer review, and a user dashboard to track exam history and results.",
-    tech: ["React", "Typescript", "Firebase", "Tailwind CSS"],
-    image: "/images/noa.png?height=200&width=300",
-    github: "https://github.com/Lesuuh/noa-web",
-    live: "https://noacbt.netlify.app/",
-    status: "In Progress",
-  },
+
   {
     id: 5,
     title: "MovieFreak",

@@ -12,15 +12,18 @@ import Contact from "@/app/_components/Contact";
 export default function ProjectDetail() {
   const { projectId } = useParams();
   const project = projects.find((item) => item.id === +projectId!);
-  console.log(project);
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Project Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4 text-gray-100">
+            Project Not Found
+          </h1>
           <Link href="/">
-            <Button>Back to Home</Button>
+            <Button className="bg-blue-600 text-white hover:bg-blue-500 shadow-md transition-all duration-300">
+              Back to Home
+            </Button>
           </Link>
         </div>
       </div>
@@ -28,19 +31,21 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <nav className="sticky top-0 z-50 bg-gray-800/80 backdrop-blur-md border-b border-gray-700">
         <div className="max-w-5xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link
               href="/"
-              className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors"
+              className="flex items-center space-x-2 text-gray-400 hover:text-gray-100 transition-colors duration-300"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to Portfolio</span>
             </Link>
-            <div className="font-medium text-lg">Lesuuh Ueh-Kabari</div>
+            <div className="font-medium text-lg text-gray-100">
+              Lesuuh Ueh-Kabari
+            </div>
           </div>
         </div>
       </nav>
@@ -57,22 +62,22 @@ export default function ProjectDetail() {
                 }
                 className={`mb-4 ${
                   project.status === "In Progress"
-                    ? "bg-blue-100 text-blue-800 border-blue-200"
-                    : "bg-green-100 text-green-800 border-green-200"
+                    ? "bg-blue-900 text-blue-300 border-blue-600"
+                    : "bg-green-900 text-green-300 border-green-600"
                 }`}
               >
                 {project.status}
               </Badge>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl font-bold text-gray-100 mb-4">
                 {project.title}
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-400 leading-relaxed">
                 {project.description}
               </p>
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold mb-4 text-gray-900">
+              <h2 className="text-xl font-semibold mb-4 text-gray-100">
                 Technologies Used
               </h2>
               <div className="flex flex-wrap gap-2">
@@ -80,7 +85,7 @@ export default function ProjectDetail() {
                   <Badge
                     key={tech}
                     variant="outline"
-                    className="border-gray-300"
+                    className="border-gray-600 text-gray-300"
                   >
                     {tech}
                   </Badge>
@@ -90,18 +95,44 @@ export default function ProjectDetail() {
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="bg-black text-white hover:bg-gray-800 w-full sm:w-auto">
-                <Github className="w-4 h-4 mr-2" />
-                View Code
-              </Button>
-              <Button
-                variant="outline"
-                className="border-gray-300 hover:border-black bg-transparent w-full sm:w-auto"
-                disabled={project.status === "In Progress"}
-              >
-                <ExternalLink className="w-4 h-4 mr-2" />
-                {project.status === "In Progress" ? "Coming Soon" : "Live Demo"}
-              </Button>
+              <div className="flex space-x-3">
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="bg-gray-700 text-gray-100 border-gray-600 hover:bg-gray-600 hover:text-gray-50 w-full"
+                  >
+                    <Github className="w-3 h-3 mr-1" />
+                    Code
+                  </Button>
+                </Link>
+
+                <Link
+                  href={project.status === "Completed" ? project.live : ""}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Button
+                    size="sm"
+                    className="flex-1 w-full bg-blue-600 text-white hover:bg-blue-500 text-xs"
+                    disabled={project.status === "In Progress"}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    {project.status === "In Progress"
+                      ? "Coming Soon"
+                      : "Live Demo"}
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -111,14 +142,14 @@ export default function ProjectDetail() {
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               fill
-              className="object-contain rounded-2xl shadow-xs"
+              className="object-contain rounded-2xl shadow-md border border-gray-700"
             />
           </div>
         </div>
       </section>
 
       {/* Simple CTA */}
-      <section className="py-16 px-6 bg-gray-50">
+      <section className="py-16 px-6 bg-gray-800">
         <Contact />
       </section>
     </div>

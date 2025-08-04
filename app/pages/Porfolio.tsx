@@ -13,7 +13,7 @@ import { heroTechStack, projects, skills } from "../data";
 import Contact from "../_components/Contact";
 import { useRouter } from "next/navigation";
 
-const Porfolio = () => {
+const Portfolio = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
@@ -53,21 +53,21 @@ const Porfolio = () => {
   };
 
   return (
-    <div className="bg-white text-black min-h-screen [family-name:var(--font-geist-sans)]">
+    <div className="bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 min-h-screen [family-name:var(--font-geist-sans)]">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-800/80 backdrop-blur-lg border-b border-gray-700">
         <div className="max-w-5xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="font-medium text-lg">Lesuuh</div>
+            <div className="font-medium text-lg text-gray-100">Lesuuh</div>
             <div className="hidden md:flex items-center space-x-8">
               {["hero", "about", "projects", "contact"].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`text-sm transition-colors hover:text-black ${
+                  className={`text-sm transition-colors hover:text-gray-300 ${
                     activeSection === section
-                      ? "text-black font-medium"
-                      : "text-gray-600"
+                      ? "text-gray-100 font-medium"
+                      : "text-gray-400"
                   }`}
                 >
                   {section.charAt(0).toUpperCase() + section.slice(1)}
@@ -82,7 +82,7 @@ const Porfolio = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="bg-black text-white border-black hover:bg-gray-800"
+                className="bg-gray-700 text-gray-100 border-gray-600 hover:bg-gray-600 hover:text-gray-50"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Resume
@@ -92,8 +92,7 @@ const Porfolio = () => {
         </div>
       </nav>
       <main className="w-full py-5">
-        {/* Hero  section*/}
-
+        {/* Hero Section */}
         <ScrollReveal>
           <section
             id="hero"
@@ -101,50 +100,46 @@ const Porfolio = () => {
           >
             {/* Subtle Grid Background */}
             <div className="absolute inset-0 -z-10">
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-30"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-white"></div>
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#4b5563_1px,transparent_1px),linear-gradient(to_bottom,#4b5563_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
             </div>
 
             <div className="w-full max-w-5xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 {/* Left section */}
-                <div className="space-y-6 lg:space-y-8 ">
+                <div className="space-y-6 lg:space-y-8">
                   {/* Greetings */}
                   <div className="space-y-1 lg:space-y-2">
-                    <p className="text-lg text-gray-600">Hello, I&apos;m</p>
-                    <h1 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                    <p className="text-lg text-gray-400">Hello, I&apos;m</p>
+                    <h1 className="text-3xl lg:text-5xl font-bold text-gray-100 leading-tight">
                       Lesuuh Ueh-Kabari
                     </h1>
                     <div className="flex items-center space-x-3">
-                      <div className="h-1 w-12 bg-black"></div>
-                      <p className="text-lg lg:text-xl text-gray-700 font-medium">
+                      <div className="h-1 w-12 bg-blue-500"></div>
+                      <p className="text-lg lg:text-xl text-gray-300 font-medium">
                         Frontend Developer
                       </p>
                     </div>
                   </div>
                   {/* Description */}
                   <div className="space-y-4">
-                    <p className="text-base text-gray-600 leading-relaxed max-w-lg">
+                    <p className="text-base text-gray-400 leading-relaxed max-w-lg">
                       I specialize in creating exceptional digital experiences
                       through clean code, thoughtful design, and modern web
                       technologies.
                     </p>
                     <div className="flex items-center space-x-6 text-sm text-gray-500">
                       <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                         <span>Available for hire and projects</span>
                       </div>
-                      {/* <div className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                        <span>Based in Portharcourt</span>
-                      </div> */}
                     </div>
                   </div>
                   {/* CTA Buttons */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button
                       onClick={() => scrollToSection("projects")}
-                      className="bg-black text-white hover:bg-gray-800 px-6 py-3 font-medium group"
+                      className="bg-blue-600 text-white hover:bg-blue-500 px-6 py-3 font-medium group shadow-md transition-all duration-300"
                     >
                       View My Work
                       <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -152,17 +147,17 @@ const Porfolio = () => {
                     <Button
                       variant="outline"
                       onClick={() => scrollToSection("contact")}
-                      className="border-gray-300 hover:border-black px-6 py-3 font-medium"
+                      className="bg-gray-700 text-gray-100 border-gray-600 hover:bg-gray-600 hover:text-gray-50"
                     >
                       Let&apos;s Connect
                     </Button>
                   </div>
                 </div>
                 {/* Right section */}
-                <div className="relative lg:block ">
+                <div className="relative lg:block">
                   <div className="relative">
                     {/* Main Card */}
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 relative z-10">
+                    <div className="bg-gray-800 rounded-2xl shadow-xl border border-gray-700 p-8 relative z-10">
                       <div className="space-y-6">
                         {/* Code Preview */}
                         <div className="bg-gray-900 rounded-lg p-4 text-sm">
@@ -211,16 +206,16 @@ const Porfolio = () => {
 
                         {/* Tech Stack */}
                         <div className="space-y-3">
-                          <h3 className="font-semibold text-gray-900">
+                          <h3 className="font-semibold text-gray-100">
                             Current Tech Stack
                           </h3>
                           <div className="grid grid-cols-3 gap-3">
                             {heroTechStack.map((tech) => (
                               <div
                                 key={tech}
-                                className="bg-gray-50 rounded-lg p-3 text-center"
+                                className="bg-gray-700 rounded-lg p-3 text-center"
                               >
-                                <div className="text-xs font-medium text-gray-700">
+                                <div className="text-xs font-medium text-gray-300">
                                   {tech}
                                 </div>
                               </div>
@@ -231,7 +226,7 @@ const Porfolio = () => {
                     </div>
 
                     {/* Floating Elements */}
-                    <div className="absolute -top-4 -right-4 bg-blue-500 text-white p-3 rounded-xl shadow-lg z-20">
+                    <div className="absolute -top-4 -right-4 bg-blue-600 text-white p-3 rounded-xl shadow-lg z-20">
                       <div className="text-xs font-medium">
                         Currently Building
                       </div>
@@ -240,7 +235,7 @@ const Porfolio = () => {
                       </div>
                     </div>
 
-                    <div className="absolute -bottom-4 -left-4 bg-green-500 text-white p-3 rounded-xl shadow-lg z-20">
+                    <div className="absolute -bottom-4 -left-4 bg-green-600 text-white p-3 rounded-xl shadow-lg z-20">
                       <div className="text-xs font-medium">Latest Project</div>
                       <div className="text-sm font-bold">
                         E-commerce Website
@@ -248,34 +243,36 @@ const Porfolio = () => {
                     </div>
 
                     {/* Background Decoration */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl -z-10 opacity-50"></div>
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-3xl -z-10 opacity-50"></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="absolute bottom-8 left-1/2 transform -transform-x-1/2">
-              <div className="flex flex-col items-center text-gray-400 space-y-2">
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+              <div className="flex flex-col items-center text-gray-500 space-y-2">
                 <span className="text-xs uppercase tracking-wide">Scroll</span>
-                <div className="w-px h-8 bg-gray-300"></div>
+                <div className="w-px h-8 bg-gray-600"></div>
               </div>
             </div>
           </section>
         </ScrollReveal>
 
-        {/* About me */}
+        {/* About Me */}
         <ScrollReveal>
-          <section id="about" className="py-24 bg-gray-50 px-6">
+          <section id="about" className="py-24 bg-gray-800 px-6">
             <div className="max-w-5xl mx-auto w-full">
-              <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
+              <h2 className="text-4xl font-bold mb-12 text-center text-gray-100">
+                About Me
+              </h2>
               <div className="grid md:grid-cols-2 gap-12 items-center justify-center">
                 <div>
-                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                  <p className="text-lg text-gray-300 mb-6 leading-relaxed">
                     I&apos;m a dedicated frontend developer with a strong focus
                     on building functional and user-friendly web applications. I
                     specialize in React, Tailwind CSS, and I&apos;m actively
                     expanding my skills with Next.js and modern web tools.
                   </p>
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                     I enjoy solving real-world problems through code, exploring
                     practical UI patterns, and building projects that showcase
                     clean logic and useful features. Outside of coding, I love
@@ -288,7 +285,7 @@ const Porfolio = () => {
                       <Badge
                         key={skill}
                         variant="default"
-                        className=" border border-gray-200"
+                        className="bg-gray-700 border-gray-600 text-gray-300"
                       >
                         {skill}
                       </Badge>
@@ -301,7 +298,7 @@ const Porfolio = () => {
                     alt="Profile-pic"
                     width={400}
                     height={400}
-                    className="rounded-sm border-8 border-white w-full"
+                    className="rounded-sm border-8 border-gray-700 w-full"
                   />
                 </div>
               </div>
@@ -317,8 +314,10 @@ const Porfolio = () => {
           >
             <div className="max-w-5xl w-full mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-                <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                <h2 className="text-4xl font-bold mb-4 text-gray-100">
+                  Featured Projects
+                </h2>
+                <p className="text-gray-400 text-lg max-w-2xl mx-auto">
                   A collection of projects that showcase my skills and passion
                   for creating exceptional web experiences.
                 </p>
@@ -329,11 +328,11 @@ const Porfolio = () => {
                   <AnimateCard key={index}>
                     <Card
                       onClick={() => handleViewProject(project.id)}
-                      className="group cursor-pointer flex flex-col h-full overflow-hidden border-0 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                      className="group cursor-pointer p-0 flex flex-col h-full overflow-hidden bg-gray-800 border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
                     >
                       <CardContent className="p-0 flex flex-col flex-1">
                         <div className="relative">
-                          <div className="aspect-video bg-gray-100 overflow-hidden">
+                          <div className="aspect-video bg-gray-700 overflow-hidden">
                             <Image
                               fill
                               src={project.image || "/placeholder.svg"}
@@ -350,8 +349,8 @@ const Porfolio = () => {
                               }
                               className={`text-xs font-medium ${
                                 project.status === "In Progress"
-                                  ? "bg-blue-100 text-blue-800 border-blue-200"
-                                  : "bg-green-100 text-green-800 border-green-200"
+                                  ? "bg-blue-900 text-blue-300 border-blue-600"
+                                  : "bg-green-900 text-green-300 border-green-600"
                               }`}
                             >
                               {project.status}
@@ -360,10 +359,10 @@ const Porfolio = () => {
                         </div>
 
                         <div className="p-6 flex flex-col justify-between flex-1">
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-gray-600 transition-colors">
+                          <h3 className="text-xl font-bold mb-2 text-gray-100 group-hover:text-gray-300 transition-colors">
                             {project.title}
                           </h3>
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
+                          <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
                             {project.description}
                           </p>
 
@@ -372,7 +371,7 @@ const Porfolio = () => {
                               <Badge
                                 key={index}
                                 variant="outline"
-                                className="text-xs border-gray-300 text-gray-600"
+                                className="text-xs border-gray-600 text-gray-300"
                               >
                                 {tech}
                               </Badge>
@@ -380,7 +379,7 @@ const Porfolio = () => {
                             {project.tech.length > 3 && (
                               <Badge
                                 variant="outline"
-                                className="text-xs border-gray-300 text-gray-500"
+                                className="text-xs border-gray-600 text-gray-400"
                               >
                                 +{project.tech.length - 3}
                               </Badge>
@@ -398,7 +397,7 @@ const Porfolio = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="flex-1 w-full border-gray-300 hover:border-black text-xs"
+                                className="bg-gray-700 text-gray-100 border-gray-600 hover:bg-gray-600 hover:text-gray-50 w-full"
                               >
                                 <Github className="w-3 h-3 mr-1" />
                                 Code
@@ -418,7 +417,7 @@ const Porfolio = () => {
                             >
                               <Button
                                 size="sm"
-                                className="flex-1 w-full bg-black text-white hover:bg-gray-800 text-xs"
+                                className="flex-1 w-full bg-blue-600 text-white hover:bg-blue-500 text-xs"
                                 disabled={project.status === "In Progress"}
                                 onClick={(e) => e.stopPropagation()}
                               >
@@ -435,16 +434,6 @@ const Porfolio = () => {
                   </AnimateCard>
                 ))}
               </div>
-
-              {/* <div className="text-center mt-12">
-                <Button
-                  variant="outline"
-                  className="border-gray-300 hover:border-black"
-                >
-                  View All Projects
-                  <ArrowUpRight className="w-4 h-4 ml-2" />
-                </Button>
-              </div> */}
             </div>
           </section>
         </ScrollReveal>
@@ -456,4 +445,4 @@ const Porfolio = () => {
   );
 };
 
-export default Porfolio;
+export default Portfolio;

@@ -231,14 +231,14 @@ const Portfolio = () => {
                         Currently Building
                       </div>
                       <div className="text-sm font-bold">
-                        AI Interview Platform
+                        Cyber - Modern E-commerce store for Gadgets
                       </div>
                     </div>
 
                     <div className="absolute -bottom-4 -left-4 bg-green-600 text-white p-3 rounded-xl shadow-lg z-20">
                       <div className="text-xs font-medium">Latest Project</div>
                       <div className="text-sm font-bold">
-                        E-commerce Website
+                        Intervue
                       </div>
                     </div>
 

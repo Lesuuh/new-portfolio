@@ -23,7 +23,7 @@ export const projects = [
     id: 4,
     title: "NOA CBT Exam Prep",
     description:
-      "NOA CBT Web App – A computer-based testing platform for the National Orientation Agency’s promotional exams. Built with React, TypeScript, and Tailwind CSS, it features timed multiple-choice tests, instant grading, answer review, and a user dashboard to track exam history and results.",
+      "NOA CBT Web App – A computer-based testing platform for the National Orientation Agency’s promotional exams. Built with React, TypeScript, and Tailwind CSS, it features timed multiple-choice tests, instant grading, and a user dashboard to track exam history and results.",
     tech: ["React", "Typescript", "Firebase", "Tailwind CSS"],
     image: "/images/noa.png?height=200&width=300",
     github: "https://github.com/Lesuuh/noa-web",

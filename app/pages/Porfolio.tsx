@@ -18,7 +18,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "contacts", "projects", "about"];
+      const sections = ["hero", "about", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -91,6 +91,7 @@ const Portfolio = () => {
           </div>
         </div>
       </nav>
+
       <main className="w-full py-5">
         {/* Hero Section */}
         <ScrollReveal>
@@ -98,7 +99,6 @@ const Portfolio = () => {
             id="hero"
             className="min-h-screen pt-16 lg:pt-0 flex items-center justify-center px-6 relative"
           >
-            {/* Subtle Grid Background */}
             <div className="absolute inset-0 -z-10">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#4b5563_1px,transparent_1px),linear-gradient(to_bottom,#4b5563_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-20"></div>
               <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
@@ -106,7 +106,6 @@ const Portfolio = () => {
 
             <div className="w-full max-w-5xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-16 items-center">
-                {/* Left section */}
                 <div className="space-y-6 lg:space-y-8">
                   {/* Greetings */}
                   <div className="space-y-1 lg:space-y-2">
@@ -153,10 +152,10 @@ const Portfolio = () => {
                     </Button>
                   </div>
                 </div>
-                {/* Right section */}
+
+                {/* Right Section */}
                 <div className="relative lg:block">
                   <div className="relative">
-                    {/* Main Card */}
                     <div className="bg-gray-800 rounded-2xl shadow-xl border border-gray-700 p-8 relative z-10">
                       <div className="space-y-6">
                         {/* Code Preview */}
@@ -231,31 +230,23 @@ const Portfolio = () => {
                         Currently Building
                       </div>
                       <div className="text-sm font-bold">
-<<<<<<< HEAD
-                        Cyber - Modern E-commerce store for Gadgets
-=======
                         Cybertech Shop - Modern tech e-commerce
->>>>>>> b3199cb (update currently building)
                       </div>
                     </div>
 
                     <div className="absolute -bottom-4 -left-4 bg-green-600 text-white p-3 rounded-xl shadow-lg z-20">
                       <div className="text-xs font-medium">Latest Project</div>
                       <div className="text-sm font-bold">
-<<<<<<< HEAD
-                        Intervue
-=======
                         Whispers - Anonymous Blog
->>>>>>> b3199cb (update currently building)
                       </div>
                     </div>
 
-                    {/* Background Decoration */}
                     <div className="absolute -inset-4 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-3xl -z-10 opacity-50"></div>
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
               <div className="flex flex-col items-center text-gray-500 space-y-2">
                 <span className="text-xs uppercase tracking-wide">Scroll</span>
@@ -412,29 +403,31 @@ const Portfolio = () => {
                               </Button>
                             </Link>
 
-                            <Link
-                              href={
-                                project.status === "Completed"
-                                  ? project.live
-                                  : ""
-                              }
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="w-full flex-1"
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Button
-                                size="sm"
-                                className="flex-1 w-full bg-blue-600 text-white hover:bg-blue-500 text-xs"
-                                disabled={project.status === "In Progress"}
+                            {project.status === "Completed" ? (
+                              <Link
+                                href={project.live}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full flex-1"
                                 onClick={(e) => e.stopPropagation()}
                               >
-                                <ExternalLink className="w-3 h-3 mr-1" />
-                                {project.status === "In Progress"
-                                  ? "Coming Soon"
-                                  : "Live Demo"}
+                                <Button
+                                  size="sm"
+                                  className="flex-1 w-full bg-blue-600 text-white hover:bg-blue-500 text-xs"
+                                >
+                                  <ExternalLink className="w-3 h-3 mr-1" />
+                                  Live Demo
+                                </Button>
+                              </Link>
+                            ) : (
+                              <Button
+                                size="sm"
+                                className="flex-1 w-full bg-gray-700 text-gray-400 text-xs cursor-not-allowed"
+                                disabled
+                              >
+                                Coming Soon
                               </Button>
-                            </Link>
+                            )}
                           </div>
                         </div>
                       </CardContent>
@@ -445,6 +438,7 @@ const Portfolio = () => {
             </div>
           </section>
         </ScrollReveal>
+
         {/* Contact Section */}
         <Contact />
       </main>

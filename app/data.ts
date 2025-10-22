@@ -10,6 +10,24 @@ export const heroTechStack = [
 export const projects = [
   {
     id: 1,
+    title: "Whispers",
+    description:
+      "Whispers – A next-gen anonymous blogging platform where users share thoughts, confessions, and stories without revealing their identity. Features real-time posts and a clean, responsive UI. Built with React, TypeScript, Tailwind CSS, Node.js, Express, and Supabase for seamless frontend-backend integration.",
+    tech: [
+      "NextJS",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "Supabase",
+    ],
+    image: "/images/whispers.png?height=200&width=300",
+    github: "https://github.com/Lesuuh/whispers",
+    live: "https://whispers-gold.vercel.app/",
+    status: "Completed",
+  },
+  {
+    id: 1,
     title: "Intervue - AI-Interview",
     description:
       "Intervue – A web platform that helps recruiters create and schedule AI-powered interviews, share invite links with candidates, and receive automated scoring and hiring recommendations. Built with React, TypeScript, Tailwind CSS, and Supabase.",

@@ -94,28 +94,28 @@ export const projects = [
     live: "/",
     status: "In Progress",
   },
-  {
-    id: 6,
-    title: "SJ Website",
-    description:
-      "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-    tech: ["React", "Tailwind CSS"],
-    image: "/images/sj.png?height=200&width=300",
-    github: "https://github.com/Lesuuh/SJ-portfolio",
-    live: "https://sj-portfolio-yt.netlify.app/",
-    status: "Completed",
-  },
-  {
-    id: 7,
-    title: "Homigon - Real Estate",
-    description:
-      "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
-    tech: ["Javascript", "HTML5", "CSS3"],
-    image: "/images/homigon.png?height=200&width=300",
-    github: "https://github.com/Lesuuh/test-homigon",
-    live: "https://lesuuh.github.io/test-homigon/",
-    status: "Completed",
-  },
+  // {
+  //   id: 6,
+  //   title: "SJ Website",
+  //   description:
+  //     "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+  //   tech: ["React", "Tailwind CSS"],
+  //   image: "/images/sj.png?height=200&width=300",
+  //   github: "https://github.com/Lesuuh/SJ-portfolio",
+  //   live: "https://sj-portfolio-yt.netlify.app/",
+  //   status: "Completed",
+  // },
+  // {
+  //   id: 7,
+  //   title: "Homigon - Real Estate",
+  //   description:
+  //     "Responsive portfolio website with modern design, smooth animations, and optimized performance.",
+  //   tech: ["Javascript", "HTML5", "CSS3"],
+  //   image: "/images/homigon.png?height=200&width=300",
+  //   github: "https://github.com/Lesuuh/test-homigon",
+  //   live: "https://lesuuh.github.io/test-homigon/",
+  //   status: "Completed",
+  // },
 ];
 
 export const githubRepo = "https://github.com/Lesuuh";

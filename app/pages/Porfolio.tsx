@@ -231,14 +231,22 @@ const Portfolio = () => {
                         Currently Building
                       </div>
                       <div className="text-sm font-bold">
+<<<<<<< HEAD
                         Cyber - Modern E-commerce store for Gadgets
+=======
+                        Cybertech Shop - Modern tech e-commerce
+>>>>>>> b3199cb (update currently building)
                       </div>
                     </div>
 
                     <div className="absolute -bottom-4 -left-4 bg-green-600 text-white p-3 rounded-xl shadow-lg z-20">
                       <div className="text-xs font-medium">Latest Project</div>
                       <div className="text-sm font-bold">
+<<<<<<< HEAD
                         Intervue
+=======
+                        Whispers - Anonymous Blog
+>>>>>>> b3199cb (update currently building)
                       </div>
                     </div>
 

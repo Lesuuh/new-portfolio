@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
@@ -31,10 +31,10 @@ export default function ProjectDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100">
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-gray-800/80 backdrop-blur-md border-b border-gray-700">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+      <nav className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center space-x-2 text-gray-400 hover:text-gray-100 transition-colors"
@@ -45,91 +45,123 @@ export default function ProjectDetail() {
         </div>
       </nav>
 
-      {/* Main Content - Single Column */}
-      <main className="max-w-4xl mx-auto px-6 py-16 space-y-16">
-        {/* Header */}
-        <header className="space-y-6">
-          <div className="flex flex-wrap items-center gap-3">
-            {/* <Badge className="bg-green-900 text-green-300 border-green-600">
-              {project.category}
-            </Badge> */}
-            <Badge
-              className={`${
-                project.status === "In Progress"
-                  ? "bg-blue-900 text-blue-300 border-blue-600"
-                  : "bg-green-900 text-green-300 border-green-600"
-              }`}
-            >
-              {project.status}
-            </Badge>
-          </div>
-
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-100">
-            {project.title}
-          </h1>
-
-          <p className="text-xl text-gray-400 leading-relaxed">
+      {/* Hero Section */}
+      <header className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <Image
+          src={project.image || "/placeholder.svg"}
+          alt={project.title}
+          fill
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-900" />
+        <div className="relative z-10 text-center space-y-4 px-4">
+          <h1 className="text-5xl font-bold tracking-tight">{project.title}</h1>
+          <p className="text-gray-300 max-w-2xl mx-auto text-lg leading-relaxed">
             {project.description}
           </p>
-
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                className="bg-gray-700 text-gray-100 border-gray-600 hover:bg-gray-600"
+          <div className="flex justify-center gap-3">
+            {project.status && (
+              <Badge
+                className={`px-3 py-1 ${
+                  project.status === "In Progress"
+                    ? "bg-blue-900 text-blue-300 border-blue-700"
+                    : "bg-green-900 text-green-300 border-green-700"
+                }`}
               >
-                <Github className="w-4 h-4 mr-2" />
-                View Code
-              </Button>
-            </Link>
-
-            {project.status === "Completed" && (
-              <Link
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="bg-blue-600 text-white hover:bg-blue-500">
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  Live Demo
-                </Button>
-              </Link>
+                {project.status}
+              </Badge>
             )}
           </div>
-        </header>
-
-        {/* Project Image */}
-        <div className="w-full aspect-video relative rounded-xl overflow-hidden border border-gray-700">
-          <Image
-            src={project.image || "/placeholder.svg"}
-            alt={project.title}
-            fill
-            className="object-cover"
-          />
         </div>
+      </header>
 
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-6 py-20 space-y-20">
         {/* Overview */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-gray-100">Overview</h2>
-          <div className="text-gray-300 leading-relaxed whitespace-pre-line">
-            {project.fullDescription}
+        <section>
+          <h2 className="text-3xl font-semibold border-l-4 border-blue-600 pl-3 mb-6">
+            Overview
+          </h2>
+          <p className="text-gray-300 leading-relaxed max-w-2xl">
+            {project.overview}
+          </p>
+        </section>
+
+        {/* Project Image Showcase */}
+        <section className="flex justify-center">
+          <div className="relative w-full max-w-3xl aspect-video rounded-2xl overflow-hidden border border-gray-700 shadow-2xl shadow-black/40">
+            <Image
+              src={project.image || "/placeholder.svg"}
+              alt={`${project.title} showcase`}
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-500"
+            />
           </div>
         </section>
 
-        {/* Metrics - If Available */}
+        {/* Key Features */}
+        {project.keyFeatures?.length > 0 && (
+          <section className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              {project.keyFeatures.map((feature, idx) => (
+                <li key={idx}>{feature}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Technical Highlights */}
+        {project.technicalHighlights?.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 border-l-4 border-blue-600 pl-3">
+              Technical Highlights
+            </h2>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              {project.technicalHighlights.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Impact */}
+        {project.impact?.length > 0 && (
+          <section className="bg-gray-800/50 rounded-2xl p-8 border border-gray-700">
+            <h2 className="text-2xl font-semibold mb-4">Impact</h2>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              {project.impact.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Challenges */}
+        {project.challenges?.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-semibold mb-4 border-l-4 border-blue-600 pl-3">
+              Challenges
+            </h2>
+            <ul className="space-y-2 text-gray-300 list-disc list-inside">
+              {project.challenges.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {/* Metrics */}
         {project.metrics && (
-          <section className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-100">Impact</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <section>
+            <h2 className="text-2xl font-semibold mb-8 border-l-4 border-blue-600 pl-3">
+              Metrics
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {Object.entries(project.metrics).map(([key, value]) => (
                 <div
                   key={key}
-                  className="bg-gray-800 border border-gray-700 rounded-lg p-6"
+                  className="bg-gray-800/70 border border-gray-700 rounded-xl p-6 transition-transform hover:-translate-y-1 hover:border-blue-600"
                 >
                   <p className="text-3xl font-bold text-gray-100 mb-1">
                     {value}
@@ -144,8 +176,8 @@ export default function ProjectDetail() {
         )}
 
         {/* Tech Stack */}
-        <section className="space-y-4">
-          <h2 className="text-2xl font-bold text-gray-100">
+        <section className="pt-6 border-t border-gray-800">
+          <h2 className="text-2xl font-semibold mb-4 border-l-4 border-blue-600 pl-3">
             Technologies Used
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -153,7 +185,7 @@ export default function ProjectDetail() {
               <Badge
                 key={tech}
                 variant="outline"
-                className="text-sm py-2 px-4 border-gray-600 text-gray-300"
+                className="text-sm py-2 px-4 border-gray-600 text-gray-300 hover:border-blue-500 transition"
               >
                 {tech}
               </Badge>
@@ -162,17 +194,17 @@ export default function ProjectDetail() {
         </section>
 
         {/* CTA */}
-        <section className="pt-8 border-t border-gray-700">
-          <div className="bg-gray-800 border border-gray-700 rounded-xl p-8 text-center space-y-4">
-            <h3 className="text-2xl font-bold text-gray-100">
-              Like what you see?
+        <section className="pt-10">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-2xl p-10 text-center space-y-5 shadow-lg shadow-gray-900/30">
+            <h3 className="text-3xl font-semibold text-gray-100">
+              Ready to build something this polished?
             </h3>
             <p className="text-gray-400">
-              Let&apos;s discuss how I can help with your project
+              Let’s collaborate on your next digital experience.
             </p>
             <Link href="/#contact">
-              <Button className="bg-blue-600 text-white hover:bg-blue-500">
-                Get In Touch
+              <Button className="bg-blue-600 text-white hover:brightness-110 hover:shadow-md transition">
+                Let’s Talk
               </Button>
             </Link>
           </div>
@@ -180,12 +212,8 @@ export default function ProjectDetail() {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t border-gray-700 bg-gray-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-400 text-sm">
-            © 2025 Lesuuh Ueh-Kabari. All rights reserved.
-          </p>
-        </div>
+      <footer className="py-10 border-t border-gray-800 text-center text-gray-500 text-sm">
+        © 2025 Lesuuh Ueh-Kabari. All rights reserved.
       </footer>
     </div>
   );

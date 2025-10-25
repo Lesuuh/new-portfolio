@@ -8,9 +8,6 @@ import {
   Download,
   ExternalLink,
   Github,
-  Calendar,
-  Clock,
-  ArrowRight,
   Mail,
   Twitter,
 } from "lucide-react";
@@ -20,7 +17,7 @@ import Link from "next/link";
 import ScrollReveal from "../_components/ScrollReveal";
 import AnimateCard from "../_components/AnimateCard";
 import Contacts from "../_components/Con";
-import { heroTechStack, projects, skills, blogPosts } from "../data";
+import { heroTechStack, projects, skills } from "../data";
 import { useRouter } from "next/navigation";
 
 const Portfolio = () => {
@@ -463,7 +460,7 @@ const Portfolio = () => {
               </div>
 
               {/* View All Projects Button */}
-              <div className="text-center mt-12">
+              {/* <div className="text-center mt-12">
                 <Button
                   onClick={() => scrollToSection("contact")}
                   variant="outline"
@@ -472,13 +469,13 @@ const Portfolio = () => {
                   View All Projects
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
-              </div>
+              </div> */}
             </div>
           </section>
         </ScrollReveal>
 
         {/* Blog Section */}
-        <ScrollReveal>
+        {/* <ScrollReveal>
           <section id="blog" className="py-20 px-6 bg-gray-800">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
@@ -547,13 +544,13 @@ const Portfolio = () => {
                   </AnimateCard>
                 ))}
               </div>
-              <div>
-                {/* Contact Section */}
-                <Contacts />
-              </div>
             </div>
           </section>
-        </ScrollReveal>
+        </ScrollReveal> */}
+        <div>
+          {/* Contact Section */}
+          <Contacts />
+        </div>
       </main>
 
       {/* Footer */}

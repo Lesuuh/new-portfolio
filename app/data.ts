@@ -404,128 +404,128 @@ export const projects: Project[] = [
     },
   },
 
-  {
-    id: 4,
-    title: "Tandem Logistics",
-    slug: "tandem-logistics-landing",
-    subtitle: "Professional Business Landing Page",
-    description:
-      "Conversion-optimized landing page for logistics company highlighting services, values, and contact options. Designed to build trust and drive client inquiries.",
-    overview:
-      "Created a high-converting landing page for a logistics company to establish professional online presence and generate qualified leads. The design focuses on clear value communication, trust-building elements, and seamless user experience.",
-    problemStatement:
-      "The logistics company lacked professional web presence, resulting in lost business opportunities and low client trust. Competitors with modern websites were capturing their target market.",
-    solution:
-      "Designed and developed a conversion-focused landing page with strategic CTAs, service showcase, client testimonials, and optimized contact forms. Implemented performance best practices to ensure fast loading and excellent user experience.",
-    keyFeatures: [
-      {
-        title: "Service Showcase",
-        description:
-          "Clear presentation of logistics services with value propositions and benefits",
-      },
-      {
-        title: "Trust Elements",
-        description:
-          "Client logos, testimonials, and certifications building credibility",
-      },
-      {
-        title: "Lead Capture Forms",
-        description:
-          "Strategically placed contact forms with validation and instant confirmation",
-      },
-      {
-        title: "Mobile-First Design",
-        description:
-          "Responsive layout optimized for all devices, especially mobile users",
-      },
-      {
-        title: "Performance Optimization",
-        description:
-          "Fast loading speeds with optimized images and efficient code",
-      },
-      {
-        title: "SEO Foundation",
-        description:
-          "Semantic HTML and meta tags for improved search engine visibility",
-      },
-    ],
-    technicalHighlights: [
-      {
-        title: "Lighthouse Performance",
-        description:
-          "Achieved 95+ score across all metrics through asset optimization",
-      },
-      {
-        title: "Smooth Animations",
-        description:
-          "Implemented intersection observer for scroll-triggered animations",
-      },
-      {
-        title: "SEO Optimization",
-        description:
-          "Structured data markup and semantic HTML for better search rankings",
-      },
-      {
-        title: "Form Validation",
-        description: "Client-side validation with user-friendly error messages",
-      },
-      {
-        title: "Asset Optimization",
-        description:
-          "WebP images with lazy loading reducing initial payload by 60%",
-      },
-    ],
-    challenges: [
-      {
-        title: "Conversion Optimization",
-        description:
-          "Balancing information density with clean design for maximum conversions",
-        solution:
-          "Implemented progressive disclosure with strategic CTAs at key decision points",
-      },
-      {
-        title: "Load Time Optimization",
-        description:
-          "Maintaining visual richness while achieving fast load times",
-        solution:
-          "Used modern image formats, lazy loading, and efficient CSS for sub-2s load time",
-      },
-      {
-        title: "Mobile Experience",
-        description:
-          "Creating seamless mobile experience without compromising content",
-        solution:
-          "Mobile-first approach with touch-optimized interactions and condensed layouts",
-      },
-    ],
-    impact: [
-      "Increased client inquiries by 40% in first quarter",
-      "Achieved 95+ Lighthouse performance score",
-      "Improved brand credibility and professional image",
-      "Reduced bounce rate from 65% to 35%",
-      "Generated 50+ qualified leads in first month",
-    ],
-    tech: ["React", "Tailwind CSS", "Framer Motion", "React Hook Form"],
-    image: "/images/tandem.webp",
-    github: "https://github.com/Lesuuh/tandem-logistics",
-    live: "https://tandemlogistics.netlify.app/",
-    status: "Completed",
-    category: "Client Work",
-    timeline: "1 month",
-    role: "Frontend Developer & Designer",
-    featured: true,
-    metrics: {
-      lighthouse: "95+",
-      conversion: "+40%",
-      loadTime: "< 2s",
-    },
-    testimonial: {
-      quote:
-        "Our new website has been a game-changer. We're getting more quality leads than ever before, and clients constantly compliment the professional look.",
-      author: "Michael Okafor",
-      role: "CEO, Tandem Logistics",
-    },
-  },
+  // {
+  //   id: 4,
+  //   title: "Tandem Logistics",
+  //   slug: "tandem-logistics-landing",
+  //   subtitle: "Professional Business Landing Page",
+  //   description:
+  //     "Conversion-optimized landing page for logistics company highlighting services, values, and contact options. Designed to build trust and drive client inquiries.",
+  //   overview:
+  //     "Created a high-converting landing page for a logistics company to establish professional online presence and generate qualified leads. The design focuses on clear value communication, trust-building elements, and seamless user experience.",
+  //   problemStatement:
+  //     "The logistics company lacked professional web presence, resulting in lost business opportunities and low client trust. Competitors with modern websites were capturing their target market.",
+  //   solution:
+  //     "Designed and developed a conversion-focused landing page with strategic CTAs, service showcase, client testimonials, and optimized contact forms. Implemented performance best practices to ensure fast loading and excellent user experience.",
+  //   keyFeatures: [
+  //     {
+  //       title: "Service Showcase",
+  //       description:
+  //         "Clear presentation of logistics services with value propositions and benefits",
+  //     },
+  //     {
+  //       title: "Trust Elements",
+  //       description:
+  //         "Client logos, testimonials, and certifications building credibility",
+  //     },
+  //     {
+  //       title: "Lead Capture Forms",
+  //       description:
+  //         "Strategically placed contact forms with validation and instant confirmation",
+  //     },
+  //     {
+  //       title: "Mobile-First Design",
+  //       description:
+  //         "Responsive layout optimized for all devices, especially mobile users",
+  //     },
+  //     {
+  //       title: "Performance Optimization",
+  //       description:
+  //         "Fast loading speeds with optimized images and efficient code",
+  //     },
+  //     {
+  //       title: "SEO Foundation",
+  //       description:
+  //         "Semantic HTML and meta tags for improved search engine visibility",
+  //     },
+  //   ],
+  //   technicalHighlights: [
+  //     {
+  //       title: "Lighthouse Performance",
+  //       description:
+  //         "Achieved 95+ score across all metrics through asset optimization",
+  //     },
+  //     {
+  //       title: "Smooth Animations",
+  //       description:
+  //         "Implemented intersection observer for scroll-triggered animations",
+  //     },
+  //     {
+  //       title: "SEO Optimization",
+  //       description:
+  //         "Structured data markup and semantic HTML for better search rankings",
+  //     },
+  //     {
+  //       title: "Form Validation",
+  //       description: "Client-side validation with user-friendly error messages",
+  //     },
+  //     {
+  //       title: "Asset Optimization",
+  //       description:
+  //         "WebP images with lazy loading reducing initial payload by 60%",
+  //     },
+  //   ],
+  //   challenges: [
+  //     {
+  //       title: "Conversion Optimization",
+  //       description:
+  //         "Balancing information density with clean design for maximum conversions",
+  //       solution:
+  //         "Implemented progressive disclosure with strategic CTAs at key decision points",
+  //     },
+  //     {
+  //       title: "Load Time Optimization",
+  //       description:
+  //         "Maintaining visual richness while achieving fast load times",
+  //       solution:
+  //         "Used modern image formats, lazy loading, and efficient CSS for sub-2s load time",
+  //     },
+  //     {
+  //       title: "Mobile Experience",
+  //       description:
+  //         "Creating seamless mobile experience without compromising content",
+  //       solution:
+  //         "Mobile-first approach with touch-optimized interactions and condensed layouts",
+  //     },
+  //   ],
+  //   impact: [
+  //     "Increased client inquiries by 40% in first quarter",
+  //     "Achieved 95+ Lighthouse performance score",
+  //     "Improved brand credibility and professional image",
+  //     "Reduced bounce rate from 65% to 35%",
+  //     "Generated 50+ qualified leads in first month",
+  //   ],
+  //   tech: ["React", "Tailwind CSS", "Framer Motion", "React Hook Form"],
+  //   image: "/images/tandem.webp",
+  //   github: "https://github.com/Lesuuh/tandem-logistics",
+  //   live: "https://tandemlogistics.netlify.app/",
+  //   status: "Completed",
+  //   category: "Client Work",
+  //   timeline: "1 month",
+  //   role: "Frontend Developer & Designer",
+  //   featured: true,
+  //   metrics: {
+  //     lighthouse: "95+",
+  //     conversion: "+40%",
+  //     loadTime: "< 2s",
+  //   },
+  //   testimonial: {
+  //     quote:
+  //       "Our new website has been a game-changer. We're getting more quality leads than ever before, and clients constantly compliment the professional look.",
+  //     author: "Michael Okafor",
+  //     role: "CEO, Tandem Logistics",
+  //   },
+  // },
 ];
 
 // export const projects = [
@@ -809,6 +809,19 @@ export const projects: Project[] = [
 // Featured projects only
 export const featuredProjects = projects.filter((p) => p.featured);
 
+export const experiences = [
+  {
+    role: "Frontend Developer Intern",
+    company: "Musterbox",
+    period: "April 2025 – Present",
+    description: [
+      "Collaborating with a team to build modern, responsive web applications.",
+      "Implementing reusable React components and improving UI performance.",
+      "Working with APIs and optimizing frontend code for scalability.",
+    ],
+  },
+  // add more later
+];
 // Blog posts data
 export const blogPosts = [
   {

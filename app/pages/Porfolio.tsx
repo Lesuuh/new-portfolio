@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { skills, heroTechStack, featuredProjects } from "../data";
+import { skills, heroTechStack, featuredProjects, experiences } from "../data";
 import { Button } from "../_components/Button";
 import { Badge } from "../_components/Badge";
 import { Card } from "../_components/Card";
@@ -23,7 +23,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "projects", "contact"];
+      const sections = ["hero", "about", "works", "projects", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -70,26 +70,28 @@ const Portfolio = () => {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-6">
-            {["hero", "about", "projects", "contact"].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`text-sm transition-colors relative group ${
-                  activeSection === section
-                    ? `text-[#bfa767] font-medium` // Active link text in gold
-                    : "text-neutral-300 hover:text-neutral-200"
-                }`}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-                {/* Active Indicator - Gold Bar */}
-                {activeSection === section && (
-                  <span
-                    className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-[#bfa767] rounded-full`}
-                  ></span>
-                )}
-                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-transparent group-hover:bg-neutral-700 transition-colors duration-300 opacity-50"></span>
-              </button>
-            ))}
+            {["hero", "about", "works", "projects", "contact"].map(
+              (section) => (
+                <button
+                  key={section}
+                  onClick={() => scrollToSection(section)}
+                  className={`text-sm transition-colors relative group ${
+                    activeSection === section
+                      ? `text-[#bfa767] font-medium` // Active link text in gold
+                      : "text-neutral-300 hover:text-neutral-200"
+                  }`}
+                >
+                  {section.charAt(0).toUpperCase() + section.slice(1)}
+                  {/* Active Indicator - Gold Bar */}
+                  {activeSection === section && (
+                    <span
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-[#bfa767] rounded-full`}
+                    ></span>
+                  )}
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-transparent group-hover:bg-neutral-700 transition-colors duration-300 opacity-50"></span>
+                </button>
+              )
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -121,19 +123,21 @@ const Portfolio = () => {
         {mobileMenuOpen && (
           <div className="md:hidden border-t border-neutral-700/40 bg-neutral-950">
             <div className="px-4 py-4 space-y-3">
-              {["hero", "about", "projects", "contact"].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                    activeSection === section
-                      ? "text-white bg-neutral-800 font-medium"
-                      : "text-neutral-300"
-                  }`}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                </button>
-              ))}
+              {["hero", "about", "works", "projects", "contact"].map(
+                (section) => (
+                  <button
+                    key={section}
+                    onClick={() => scrollToSection(section)}
+                    className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                      activeSection === section
+                        ? "text-white bg-neutral-800 font-medium"
+                        : "text-neutral-300"
+                    }`}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </button>
+                )
+              )}
             </div>
           </div>
         )}
@@ -323,6 +327,45 @@ const Portfolio = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Work Section */}
+        <section id="works" className="py-20">
+          <div className="max-w-2xl mx-auto px-6">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center tracking-tight">
+              Work Experience
+            </h2>
+
+            <div className="space-y-8">
+              {experiences.map((exp, i) => (
+                <div key={i} className="group">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-lg md:text-xl font-semibold text-[#bfa76f] group-hover:text-[#d8bf80] transition-colors">
+                      {exp.role}
+                    </h3>
+                    <span className="text-xs md:text-sm text-neutral-500">
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  <p className="text-sm font-medium text-neutral-300 mb-2">
+                    {exp.company}
+                  </p>
+
+                  <ul className="space-y-1 text-sm text-neutral-400 leading-relaxed">
+                    {exp.description.map((d, j) => (
+                      <li
+                        key={j}
+                        className="pl-3 relative before:content-['–'] before:absolute before:left-0 before:text-[#bfa76f]/70"
+                      >
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>

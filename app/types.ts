@@ -15,9 +15,9 @@ export interface Challenge {
 }
 
 export interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
+  quote?: string;
+  author?: string;
+  role?: string;
 }
 
 export interface Metrics {
@@ -32,6 +32,12 @@ export interface Metrics {
   timeSaved?: string;
   lighthouse?: string;
   conversion?: string;
+  performance?: string;
+  seo?: string;
+  accessibility?: string;
+  bestPractices?: string;
+  confidenceBoost?: string;
+  progressLoss?: string;
 }
 
 export interface Project {
@@ -51,11 +57,11 @@ export interface Project {
   image: string;
   github: string;
   live: string;
-  status: "Completed" | "Ongoing" | "Planned";
+  status: "Completed" | "Ongoing" | "Planned" | "Prototype";
   category: string;
   timeline: string;
   role: string;
   featured: boolean;
   metrics: Metrics;
-  testimonial: Testimonial;
+  testimonial?: Testimonial;
 }

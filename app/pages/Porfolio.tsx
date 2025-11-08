@@ -14,6 +14,7 @@ import {
   Github,
   Twitter,
   ExternalLink,
+  LinkedIn,
 } from "../_components/Icons";
 import { Project } from "../types";
 
@@ -529,6 +530,14 @@ const Portfolio = () => {
                 className="text-white hover:text-[#d8bf80] transition-colors"
               >
                 <Twitter className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/lesuuh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-[#d8bf80] transition-colors"
+              >
+                <LinkedIn className="w-6 h-6" />
               </a>
             </div>
           </div>

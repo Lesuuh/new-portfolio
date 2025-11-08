@@ -9,370 +9,394 @@ export const heroTechStack = [
   "Tailwind CSS",
 ];
 
+export const experiences = [
+  {
+    role: "Frontend Developer Intern",
+    company: "Musterbox",
+    period: "April 2025 – Present",
+    description: [
+      "Collaborating with a team to build modern, responsive web applications.",
+      "Implementing reusable React components and improving UI performance.",
+      "Working with APIs and optimizing frontend code for scalability.",
+    ],
+  },
+];
+
+// Skills for about section
+export const skills = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind CSS",
+  "Node.js",
+  "Express",
+  "Firebase",
+  "Supabase",
+  "Zustand",
+  "React Query",
+  "Git",
+  "REST APIs",
+  "Responsive Design",
+  "Web Performance and Accessibility",
+];
+
+export const githubRepo = "https://github.com/Lesuuh";
+export const linkedin = "https://www.linkedin.com/in/uklesuuh/";
+export const twitter = "https://twitter.com/UKLesuuh";
+
 export const projects: Project[] = [
   {
     id: 1,
-    title: "NOA Exam Platform",
-    slug: "noa-exam-platform",
-    subtitle: "Government Digital Transformation",
+    title: "NOA CBT Practice Platform",
+    slug: "noa-cbt-practice-platform",
+    subtitle: "Empowering Staff for the Digital Exam Transition",
     description:
-      "A comprehensive examination system serving 5,000+ government workers across Nigeria with real-time proctoring, automated grading, and enterprise-grade security.",
+      "An intuitive CBT simulation platform built to help NOA staff practice real exam scenarios, boost confidence, and adapt smoothly to the agency’s new computer-based testing format.",
     overview:
-      "Built a mission-critical examination platform for the Nigerian Orientation Agency (NOA) that transformed their assessment process from physical venues to a fully digital, scalable solution. The system handles everything from candidate registration to certificate generation, serving thousands of concurrent users during peak exam periods.",
+      "Developed a modern, web-based CBT practice system for NOA staff preparing for official exams. The platform simulates the real testing environment with timed sessions, randomized questions, progress auto-saving, and post-exam analytics—helping hundreds of staff members become confident with digital testing before the official rollout.",
     problemStatement:
-      "NOA needed to modernize their examination system to reach more candidates across multiple states while reducing costs and improving security. The existing paper-based system was expensive, prone to fraud, and limited in reach.",
+      "As NOA transitioned from paper exams to CBT, many staff members felt anxious and unprepared for the digital format. There was no accessible system for practicing under realistic exam conditions.",
     solution:
-      "Developed a full-stack web application with real-time video proctoring, automated grading, and a comprehensive admin dashboard. The platform ensures exam integrity through multiple security layers while providing a seamless experience for both candidates and administrators.",
+      "Built a responsive, high-performance CBT web platform that allows staff to take timed, randomized tests with real NOA past questions. Integrated Supabase authentication, database, and analytics, with autosave mechanisms to prevent progress loss. Designed a clean UI, dashboards, and review sections to reinforce learning and familiarity with the CBT format.",
     keyFeatures: [
       {
-        title: "Real-time Video Proctoring",
+        title: "Question Randomization",
         description:
-          "WebRTC-based live monitoring with automated behavior detection and flagging system",
+          "Implemented the Fisher-Yates algorithm to shuffle exam questions for every attempt.",
       },
       {
-        title: "Secure Exam Delivery",
+        title: "Timed Exams",
         description:
-          "Question randomization, time limits, and browser lockdown preventing unauthorized access",
+          "Simulates real NOA CBT sessions with countdown timers and auto-submission.",
       },
       {
-        title: "Instant Grading & Results",
+        title: "Exam Creation & Participation",
         description:
-          "Automated scoring engine with immediate feedback and downloadable certificates",
+          "Admins can add and edit questions while users can take, pause, and resume them easily.",
       },
       {
-        title: "Admin Control Center",
+        title: "Auto-Save & Sync",
         description:
-          "Comprehensive dashboard for monitoring active exams, managing users, and generating reports",
+          "Answers and progress are periodically saved to Supabase and local storage to prevent data loss.",
+      },
+      {
+        title: "Performance Analytics",
+        description:
+          "User progress and scores displayed visually using Recharts for easy tracking.",
+      },
+      {
+        title: "Reviews Page",
+        description: "Users can review past answers to learn from mistakes.",
       },
       {
         title: "Mobile Responsive Design",
         description:
-          "Optimized experience across all devices ensuring accessibility for all candidates",
+          "Fully optimized layout for both mobile and desktop experiences.",
       },
       {
-        title: "Scalable Architecture",
+        title: "Edge Function for Account Deletion",
         description:
-          "Built to handle 500+ concurrent users with room for growth to thousands",
+          "Serverless Supabase Edge Function to handle secure account deletion.",
+      },
+      {
+        title: "Payment Plan Ready",
+        description:
+          "Architecture prepared for future premium feature or subscription integration with Paystack.",
+      },
+      {
+        title: "Nice Dashboard",
+        description:
+          "Clean dashboard summarizing results, scores, and available practice exams.",
       },
     ],
     technicalHighlights: [
       {
-        title: "WebRTC Implementation",
+        title: "Supabase Integration",
         description:
-          "Built custom video proctoring without third-party services, reducing costs by 80%",
+          "Utilized Supabase Auth and Postgres DB for authentication, user data, and exam storage.",
       },
       {
         title: "Performance Optimization",
         description:
-          "Reduced initial load time to under 2 seconds through code splitting and lazy loading",
+          "Achieved Lighthouse scores of 98 (Performance), 92 (SEO), 92 (Accessibility), and 100 (Best Practices).",
       },
       {
-        title: "Database Architecture",
+        title: "Progress Synchronization",
         description:
-          "Designed normalized PostgreSQL schema handling complex relationships and concurrent writes",
+          "Real-time syncing between local storage and Supabase to prevent data loss on refresh or network failure.",
       },
       {
-        title: "Caching Strategy",
+        title: "State Management & Persistence",
         description:
-          "Implemented Redis caching layer reducing database queries by 70%",
+          "Used modern React patterns to manage and persist complex exam states smoothly.",
       },
       {
-        title: "Security Measures",
+        title: "Analytics Visualization",
         description:
-          "JWT with refresh tokens, rate limiting, and encrypted data transmission",
+          "Used Recharts for visual progress analytics and performance insights.",
       },
     ],
     challenges: [
       {
-        title: "Concurrent User Management",
-        description:
-          "Handling 500+ simultaneous exam takers without performance degradation",
+        title: "User Anxiety",
+        description: "Staff were unfamiliar with digital exams.",
         solution:
-          "Implemented connection pooling, database read replicas, and optimized query patterns",
+          "Built a clean, intuitive UI with instant feedback and review features to boost confidence.",
       },
       {
-        title: "Video Streaming Reliability",
-        description:
-          "Ensuring proctoring worked across varying network conditions",
+        title: "Data Persistence",
+        description: "Progress could be lost if the network dropped.",
         solution:
-          "Built adaptive bitrate streaming and fallback mechanisms for poor connections",
+          "Synced answers to both Supabase and local storage for seamless recovery.",
       },
       {
-        title: "Exam Security",
-        description: "Preventing cheating and unauthorized access attempts",
+        title: "Mobile Responsiveness",
+        description: "Platform needed to work across all devices.",
         solution:
-          "Multi-layered security including browser lockdown, question randomization, and activity monitoring",
+          "Fully responsive design tested on desktop, tablet, and mobile screens.",
+      },
+      {
+        title: "Exam Realism & Question Shuffling",
+        description:
+          "Exams needed to feel authentic and unique for each attempt.",
+        solution:
+          "Implemented Fisher-Yates algorithm to shuffle questions and timed sessions to simulate real CBT conditions.",
+      },
+      {
+        title: "Performance",
+        description: "Large exams could slow down the platform.",
+        solution:
+          "Optimized load times with lazy loading and efficient state management for smooth user experience.",
       },
     ],
     impact: [
-      "Served 5,000+ government workers across 6 states",
-      "Reduced exam administration costs by 60%",
-      "Achieved 99.9% uptime during critical exam periods",
-      "Processed 10,000+ exam submissions with zero data loss",
-      "Cut result delivery time from weeks to minutes",
+      "Helped initial users practice and familiarize themselves with CBT exams.",
+      "Users reported increased confidence when using the platform.",
+      "Demonstrated how small digital tools can support a smooth transition to computer-based testing.",
     ],
     tech: [
-      "Next.js",
+      "React",
       "TypeScript",
-      "PostgreSQL",
-      "WebRTC",
       "Tailwind CSS",
-      "Node.js",
-      "Redis",
-      "AWS",
+      "Supabase",
+      "Recharts",
+      "Serverless Functions",
     ],
     image: "/images/new_noa.webp",
     github: "https://github.com/lesuuh/noa-web",
     live: "https://noa-web.vercel.app",
-    status: "Completed",
-    category: "Client Work",
-    timeline: "6 months",
-    role: "Lead Frontend Developer",
+    // status: "Completed",
+    // category: "Personal Project",
+    // timeline: "3 weeks",
+    role: "Fullstack Developer",
     featured: true,
     metrics: {
-      users: "5,000+",
-      uptime: "99.9%",
-      loadTime: "< 2s",
-      costSaving: "60%",
+      performance: "98",
+      seo: "92",
+      accessibility: "92",
+      bestPractices: "100",
+      users: "200+",
+      confidenceBoost: "High",
+      progressLoss: "0%",
     },
     testimonial: {
       quote:
-        "This platform transformed how we conduct assessments. The reliability and ease of use exceeded our expectations.",
-      author: "NOA Technology Director",
-      role: "Client",
+        "Using this platform helped me get comfortable with CBT exams — I passed with confidence!",
+      author: "NOA Staff Member",
+      role: "User",
     },
+    status: "Completed",
+    category: "",
+    timeline: "",
   },
-
   {
     id: 2,
     title: "Whispers",
     slug: "whispers-anonymous-blog",
     subtitle: "Anonymous Expression Platform",
     description:
-      "Full-stack anonymous blogging platform with real-time updates where users share thoughts and stories without revealing identity, featuring live post feeds and responsive UI.",
+      "A simple anonymous blogging web app where users can share thoughts and stories without revealing their identity.",
     overview:
-      "Built a privacy-first social platform that enables users to share their thoughts, stories, and experiences anonymously. The application prioritizes real-time updates, clean design, and seamless performance while maintaining complete user anonymity.",
+      "Built a privacy-first blogging platform that allows users to post anonymously. Focused on clean UI, responsive design, and an easy-to-use posting workflow. Future plans include real-time updates, dark mode, and content moderation.",
     problemStatement:
-      "Many people have valuable thoughts and experiences to share but hesitate due to privacy concerns or fear of judgment. Traditional social platforms often lack true anonymity and pressure users to maintain a public persona.",
+      "Many people hesitate to share thoughts publicly due to privacy concerns or fear of judgment. Existing platforms rarely provide true anonymity.",
     solution:
-      "Created a full-stack anonymous blogging platform using WebSocket connections for real-time updates, implementing secure anonymous authentication, and building an intuitive interface that encourages open expression without compromising user privacy.",
+      "Created a web app allowing anonymous posts without collecting personal information. Posts are displayed in a clean feed, and users can interact without revealing identity. The app is responsive and intuitive.",
     keyFeatures: [
       {
-        title: "Real-time Post Updates",
+        title: "Anonymous Posting",
         description:
-          "WebSocket-powered live feed showing new posts instantly without page refresh",
+          "Users can share thoughts without providing personal information.",
       },
       {
-        title: "Anonymous Authentication",
-        description:
-          "Secure user sessions without collecting personal information or requiring email verification",
-      },
-      {
-        title: "Infinite Scroll Feed",
-        description:
-          "Optimized data fetching with pagination for smooth browsing experience",
-      },
-      {
-        title: "Dark Mode Support",
-        description:
-          "Eye-friendly interface with automatic theme detection and manual toggle",
-      },
-      {
-        title: "Content Moderation",
-        description:
-          "Built-in flagging system to maintain community standards while preserving anonymity",
+        title: "Clean Feed",
+        description: "All posts are displayed in a simple, scrollable feed.",
       },
       {
         title: "Responsive Design",
-        description:
-          "Mobile-first approach ensuring consistent experience across all devices",
+        description: "Optimized for desktop and mobile devices.",
       },
+      // Future features: Real-time updates, dark mode, content moderation
     ],
     technicalHighlights: [
       {
         title: "Full-Stack Architecture",
         description:
-          "Built complete REST API with Node.js and Express from scratch",
+          "Built frontend with React/Next.js and backend with Node.js/Express.",
       },
       {
-        title: "Real-time Subscriptions",
+        title: "Database Management",
         description:
-          "Implemented Supabase real-time listeners for instant content updates",
-      },
-      {
-        title: "Client-side Optimization",
-        description:
-          "Strategic caching and data prefetching reducing API calls by 60%",
+          "Posts stored securely in Supabase Postgres without storing user-identifiable data.",
       },
       {
         title: "Type Safety",
         description:
-          "Achieved 100% TypeScript coverage across frontend and backend",
-      },
-      {
-        title: "Performance Tuning",
-        description:
-          "Optimized bundle size and implemented code splitting for faster load times",
+          "TypeScript used across frontend and backend to prevent runtime errors.",
       },
     ],
     challenges: [
       {
-        title: "Real-time Scalability",
-        description: "Maintaining low latency with growing concurrent users",
+        title: "Maintaining User Anonymity",
+        description:
+          "Users needed to post without revealing identity or creating accounts.",
         solution:
-          "Implemented efficient WebSocket connection pooling and optimized database queries",
+          "Implemented anonymous session-based posting and avoided collecting emails or personal info.",
       },
       {
-        title: "Anonymous Authentication",
-        description: "Balancing security with complete user anonymity",
+        title: "Data Storage & Security",
+        description:
+          "Ensuring posts are stored securely without linking to user identity.",
         solution:
-          "Created session-based auth using secure tokens without storing identifiable information",
+          "Used Supabase with strict row-level security and minimal metadata.",
       },
       {
-        title: "Content Moderation",
-        description: "Preventing abuse while maintaining anonymity",
+        title: "Responsive Design",
+        description: "App needed to work well on all devices.",
         solution:
-          "Built automated content filtering and community-based flagging system",
+          "Built fully responsive layouts tested on mobile and desktop screens.",
       },
     ],
     impact: [
-      "Supports 100+ concurrent users with ~50ms latency",
-      "Processed 1,000+ anonymous posts in first month",
-      "Demonstrates scalable real-time architecture patterns",
-      "Encourages open expression and mental health discussions",
-      "Zero privacy breaches or user data leaks",
+      "Initial version allows anonymous sharing safely and efficiently.",
+      "Provides a safe space for users to express thoughts without judgment.",
+      // Future: Add metrics like number of posts, active users, engagement
     ],
     tech: [
+      "React",
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
       "Node.js",
       "Express",
       "Supabase",
-      "WebSockets",
+      // Future: WebSocket (Socket.IO) for real-time updates
     ],
     image: "/images/whispers.webp",
     github: "https://github.com/Lesuuh/whispers",
     live: "https://whispers-gold.vercel.app/",
-    status: "Completed",
+    status: "Ongoing",
     category: "Personal Project",
-    timeline: "3 months",
+    timeline: "4 days",
     role: "Full-Stack Developer",
     featured: true,
     metrics: {
-      latency: "~50ms",
-      coverage: "100% TS",
-      uptime: "99.8%",
+      // Leave empty or minimal for now
     },
     testimonial: {
-      quote:
-        "Finally a place where I can share my thoughts without worrying about being judged. The real-time updates make it feel alive.",
-      author: "Anonymous User",
-      role: "Platform User",
+      quote: "",
+      author: "",
+      role: "",
     },
   },
-
   {
     id: 3,
     title: "Intervue",
     slug: "intervue-ai-interview",
-    subtitle: "AI-Powered Interview Platform",
+    subtitle: "AI-Powered Interview Platform (Prototype)",
     description:
-      "AI-powered mock interview platform for recruiters to create and schedule AI interviews, share invite links with candidates, and receive automated scoring with hiring recommendations.",
+      "Prototype of an AI-powered mock interview platform that lets recruiters create and simulate technical interviews, with automated scoring and candidate feedback.",
     overview:
-      "Built an intelligent interview platform that revolutionizes technical recruitment by leveraging AI to conduct, evaluate, and score candidate interviews. Recruiters can create custom interview templates, schedule sessions, and receive detailed analytics with hiring recommendations.",
+      "Built a prototype interview platform leveraging AI to generate questions and simulate candidate interactions using voice technology. The focus is on demonstrating technical feasibility, structured evaluation, and an intuitive interface for recruiters and candidates.",
     problemStatement:
-      "Recruiters spend countless hours conducting repetitive technical interviews, leading to inconsistent evaluation standards, scheduling challenges, and delayed hiring decisions. Manual assessment is time-consuming and prone to bias.",
+      "Technical recruiters spend significant time conducting repetitive interviews, leading to inconsistent evaluations and scheduling challenges. Manual assessment is time-consuming and prone to bias.",
     solution:
-      "Developed an AI-driven platform that automates the interview process using OpenAI for intelligent question generation and Vapi for real-time voice interactions. The system provides consistent evaluation criteria, automated scoring, and data-driven hiring insights.",
+      "Developed a prototype platform using OpenAI for AI-driven question generation and Vapi for voice interactions. The system demonstrates automated scoring, structured interview templates, and a streamlined candidate experience.",
     keyFeatures: [
       {
         title: "AI Question Generation",
         description:
-          "Dynamic interview questions tailored to role requirements using OpenAI's GPT models",
+          "Generates interview questions tailored to the role using OpenAI GPT models.",
       },
       {
-        title: "Real-time Voice Interviews",
+        title: "Voice Interview Simulation",
         description:
-          "Natural conversation flow with AI interviewer using Vapi's voice technology",
+          "Candidate interactions simulated using Vapi voice technology.",
       },
       {
-        title: "Automated Scoring System",
+        title: "Automated Scoring Logic",
         description:
-          "Multi-factor evaluation analyzing technical accuracy, communication, and problem-solving",
+          "Weighted scoring system analyzing technical accuracy, problem-solving, and communication.",
       },
       {
-        title: "Recruiter Dashboard",
+        title: "Recruiter Dashboard (Prototype)",
         description:
-          "Comprehensive interface for managing candidates, scheduling interviews, and viewing analytics",
+          "Interface to manage interview templates, sessions, and candidate scoring.",
       },
       {
-        title: "Interview Templates",
+        title: "Candidate Portal (Prototype)",
         description:
-          "Pre-built and customizable question sets for different roles and skill levels",
-      },
-      {
-        title: "Candidate Portal",
-        description:
-          "User-friendly interface for candidates to join interviews and view feedback",
+          "Simplified interface for candidates to participate in mock interviews.",
       },
     ],
     technicalHighlights: [
       {
         title: "OpenAI Integration",
         description:
-          "Built sophisticated prompt engineering system for context-aware question generation",
+          "Implemented context-aware question generation using GPT-4 prompts.",
       },
       {
-        title: "Real-time Communication",
+        title: "Vapi Voice Integration",
         description:
-          "Implemented Vapi SDK for seamless voice interactions with low latency",
+          "Simulated realistic candidate interactions using Vapi SDK.",
       },
       {
         title: "State Management",
-        description:
-          "Complex state flows managed with Zustand for predictable interview sessions",
-      },
-      {
-        title: "Scoring Algorithms",
-        description:
-          "Developed custom evaluation logic combining AI insights with weighted criteria",
+        description: "Managed complex interview session flows using Zustand.",
       },
       {
         title: "Database Design",
         description:
-          "Structured Supabase schema handling interviews, candidates, and analytics data",
+          "Structured Supabase schema to store interviews, templates, and scoring data.",
       },
     ],
     challenges: [
       {
-        title: "AI Response Consistency",
+        title: "AI Question Consistency",
         description:
-          "Ensuring AI-generated questions remain relevant and fair across interviews",
+          "Ensuring AI-generated questions remain relevant across interviews.",
         solution:
-          "Implemented prompt templates with validation checks and quality control mechanisms",
-      },
-      {
-        title: "Real-time Session Management",
-        description:
-          "Handling multiple concurrent voice interviews without degradation",
-        solution:
-          "Built robust connection handling with automatic reconnection and error recovery",
+          "Used prompt templates with validation logic to maintain fairness and clarity.",
       },
       {
         title: "Scoring Accuracy",
         description:
-          "Creating fair evaluation criteria that accounts for various skill levels",
+          "Designing fair evaluation criteria across different skill levels.",
         solution:
-          "Developed weighted scoring system with multiple evaluation dimensions and human oversight",
+          "Developed weighted scoring system combining multiple evaluation dimensions.",
+      },
+      {
+        title: "Intuitive Interface",
+        description:
+          "Making the dashboard and candidate portal clear and easy to navigate.",
+        solution:
+          "Built simple, structured UI components for dashboards and portals.",
       },
     ],
     impact: [
-      "Reduced recruiter interview workload by 70%",
-      "Conducted 500+ automated interviews with consistent evaluation",
-      "Decreased time-to-hire by 40% through faster screening",
-      "Improved hiring decisions with data-driven candidate insights",
-      "Eliminated scheduling conflicts with 24/7 availability",
+      "Demonstrates technical feasibility of AI-powered interview automation.",
+      "Provides a foundation for building production-ready recruiter and candidate workflows.",
     ],
     tech: [
       "Next.js",
@@ -386,147 +410,24 @@ export const projects: Project[] = [
     image: "/images/intervue.webp",
     github: "https://github.com/Lesuuh/intervue",
     live: "https://intervue-test.vercel.app/",
-    status: "Completed",
+    status: "Prototype",
     category: "SaaS Product",
-    timeline: "4 months",
+    timeline: "3 weeks",
     role: "Full-Stack Developer",
     featured: true,
-    metrics: {
-      interviews: "500+",
-      accuracy: "85% match",
-      timeSaved: "70%",
-    },
     testimonial: {
-      quote:
-        "Intervue transformed our hiring process. We can now screen 10x more candidates without sacrificing quality.",
-      author: "Sarah Chen",
-      role: "Head of Talent Acquisition",
+      quote: "",
+      author: "",
+      role: "",
     },
+    metrics: {},
   },
-
-  // {
-  //   id: 4,
-  //   title: "Tandem Logistics",
-  //   slug: "tandem-logistics-landing",
-  //   subtitle: "Professional Business Landing Page",
-  //   description:
-  //     "Conversion-optimized landing page for logistics company highlighting services, values, and contact options. Designed to build trust and drive client inquiries.",
-  //   overview:
-  //     "Created a high-converting landing page for a logistics company to establish professional online presence and generate qualified leads. The design focuses on clear value communication, trust-building elements, and seamless user experience.",
-  //   problemStatement:
-  //     "The logistics company lacked professional web presence, resulting in lost business opportunities and low client trust. Competitors with modern websites were capturing their target market.",
-  //   solution:
-  //     "Designed and developed a conversion-focused landing page with strategic CTAs, service showcase, client testimonials, and optimized contact forms. Implemented performance best practices to ensure fast loading and excellent user experience.",
-  //   keyFeatures: [
-  //     {
-  //       title: "Service Showcase",
-  //       description:
-  //         "Clear presentation of logistics services with value propositions and benefits",
-  //     },
-  //     {
-  //       title: "Trust Elements",
-  //       description:
-  //         "Client logos, testimonials, and certifications building credibility",
-  //     },
-  //     {
-  //       title: "Lead Capture Forms",
-  //       description:
-  //         "Strategically placed contact forms with validation and instant confirmation",
-  //     },
-  //     {
-  //       title: "Mobile-First Design",
-  //       description:
-  //         "Responsive layout optimized for all devices, especially mobile users",
-  //     },
-  //     {
-  //       title: "Performance Optimization",
-  //       description:
-  //         "Fast loading speeds with optimized images and efficient code",
-  //     },
-  //     {
-  //       title: "SEO Foundation",
-  //       description:
-  //         "Semantic HTML and meta tags for improved search engine visibility",
-  //     },
-  //   ],
-  //   technicalHighlights: [
-  //     {
-  //       title: "Lighthouse Performance",
-  //       description:
-  //         "Achieved 95+ score across all metrics through asset optimization",
-  //     },
-  //     {
-  //       title: "Smooth Animations",
-  //       description:
-  //         "Implemented intersection observer for scroll-triggered animations",
-  //     },
-  //     {
-  //       title: "SEO Optimization",
-  //       description:
-  //         "Structured data markup and semantic HTML for better search rankings",
-  //     },
-  //     {
-  //       title: "Form Validation",
-  //       description: "Client-side validation with user-friendly error messages",
-  //     },
-  //     {
-  //       title: "Asset Optimization",
-  //       description:
-  //         "WebP images with lazy loading reducing initial payload by 60%",
-  //     },
-  //   ],
-  //   challenges: [
-  //     {
-  //       title: "Conversion Optimization",
-  //       description:
-  //         "Balancing information density with clean design for maximum conversions",
-  //       solution:
-  //         "Implemented progressive disclosure with strategic CTAs at key decision points",
-  //     },
-  //     {
-  //       title: "Load Time Optimization",
-  //       description:
-  //         "Maintaining visual richness while achieving fast load times",
-  //       solution:
-  //         "Used modern image formats, lazy loading, and efficient CSS for sub-2s load time",
-  //     },
-  //     {
-  //       title: "Mobile Experience",
-  //       description:
-  //         "Creating seamless mobile experience without compromising content",
-  //       solution:
-  //         "Mobile-first approach with touch-optimized interactions and condensed layouts",
-  //     },
-  //   ],
-  //   impact: [
-  //     "Increased client inquiries by 40% in first quarter",
-  //     "Achieved 95+ Lighthouse performance score",
-  //     "Improved brand credibility and professional image",
-  //     "Reduced bounce rate from 65% to 35%",
-  //     "Generated 50+ qualified leads in first month",
-  //   ],
-  //   tech: ["React", "Tailwind CSS", "Framer Motion", "React Hook Form"],
-  //   image: "/images/tandem.webp",
-  //   github: "https://github.com/Lesuuh/tandem-logistics",
-  //   live: "https://tandemlogistics.netlify.app/",
-  //   status: "Completed",
-  //   category: "Client Work",
-  //   timeline: "1 month",
-  //   role: "Frontend Developer & Designer",
-  //   featured: true,
-  //   metrics: {
-  //     lighthouse: "95+",
-  //     conversion: "+40%",
-  //     loadTime: "< 2s",
-  //   },
-  //   testimonial: {
-  //     quote:
-  //       "Our new website has been a game-changer. We're getting more quality leads than ever before, and clients constantly compliment the professional look.",
-  //     author: "Michael Okafor",
-  //     role: "CEO, Tandem Logistics",
-  //   },
-  // },
 ];
+
+// Featured projects only
+export const featuredProjects = projects.filter((p) => p.featured);
+
+//   export const facebook = "https://facebook.com/lesuuh.uehkabari";
 
 // export const projects = [
 //   {
@@ -806,79 +707,39 @@ export const projects: Project[] = [
 //   },
 // ];
 
-// Featured projects only
-export const featuredProjects = projects.filter((p) => p.featured);
-
-export const experiences = [
-  {
-    role: "Frontend Developer Intern",
-    company: "Musterbox",
-    period: "April 2025 – Present",
-    description: [
-      "Collaborating with a team to build modern, responsive web applications.",
-      "Implementing reusable React components and improving UI performance.",
-      "Working with APIs and optimizing frontend code for scalability.",
-    ],
-  },
-  // add more later
-];
 // Blog posts data
-export const blogPosts = [
-  {
-    id: 1,
-    title: "Building Real-Time Features with Supabase and React",
-    slug: "building-realtime-features-supabase-react",
-    excerpt:
-      "How I implemented real-time updates in Whispers using Supabase subscriptions, WebSockets, and React hooks for optimal performance.",
-    date: "2024-10-15",
-    readTime: "8 min read",
-    tags: ["React", "Supabase", "Real-time", "WebSockets"],
-    published: false, // Set to true when you write it
-  },
-  {
-    id: 2,
-    title: "Optimizing React Performance: Lessons from Building NOA CBT",
-    slug: "optimizing-react-performance-noa-cbt",
-    excerpt:
-      "Performance optimization techniques I used to handle 100+ question exams without lag: code splitting, memoization, and efficient state management.",
-    date: "2024-10-10",
-    readTime: "10 min read",
-    tags: ["React", "Performance", "Optimization", "TypeScript"],
-    published: false,
-  },
-  {
-    id: 3,
-    title: "From Design to Deployment: My Frontend Development Process",
-    slug: "frontend-development-process",
-    excerpt:
-      "A detailed walkthrough of how I take projects from initial concept to production deployment, including planning, development, and optimization.",
-    date: "2024-10-05",
-    readTime: "12 min read",
-    tags: ["Process", "Best Practices", "Deployment", "Workflow"],
-    published: false,
-  },
-];
-
-// Skills for about section
-export const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "Tailwind CSS",
-  "Node.js",
-  "Express",
-  "Firebase",
-  "Supabase",
-  "Zustand",
-  "React Query",
-  "Git",
-  "REST APIs",
-  "Responsive Design",
-  "Web Performance and Accessibility",
-];
-
-export const githubRepo = "https://github.com/Lesuuh";
-//   export const facebook = "https://facebook.com/lesuuh.uehkabari";
-export const linkedin = "https://www.linkedin.com/in/uklesuuh/";
-export const twitter = "https://twitter.com/UKLesuuh";
+// export const blogPosts = [
+//   {
+//     id: 1,
+//     title: "Building Real-Time Features with Supabase and React",
+//     slug: "building-realtime-features-supabase-react",
+//     excerpt:
+//       "How I implemented real-time updates in Whispers using Supabase subscriptions, WebSockets, and React hooks for optimal performance.",
+//     date: "2024-10-15",
+//     readTime: "8 min read",
+//     tags: ["React", "Supabase", "Real-time", "WebSockets"],
+//     published: false, // Set to true when you write it
+//   },
+//   {
+//     id: 2,
+//     title: "Optimizing React Performance: Lessons from Building NOA CBT",
+//     slug: "optimizing-react-performance-noa-cbt",
+//     excerpt:
+//       "Performance optimization techniques I used to handle 100+ question exams without lag: code splitting, memoization, and efficient state management.",
+//     date: "2024-10-10",
+//     readTime: "10 min read",
+//     tags: ["React", "Performance", "Optimization", "TypeScript"],
+//     published: false,
+//   },
+//   {
+//     id: 3,
+//     title: "From Design to Deployment: My Frontend Development Process",
+//     slug: "frontend-development-process",
+//     excerpt:
+//       "A detailed walkthrough of how I take projects from initial concept to production deployment, including planning, development, and optimization.",
+//     date: "2024-10-05",
+//     readTime: "12 min read",
+//     tags: ["Process", "Best Practices", "Deployment", "Workflow"],
+//     published: false,
+//   },
+// ];

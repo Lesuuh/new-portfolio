@@ -385,7 +385,7 @@ const ProjectDetail = () => {
               </section>
 
               {/* Testimonial */}
-              {project.testimonial && (
+              {project.testimonial?.author && (
                 <section
                   className={`bg-gradient-to-t from-neutral-900/50 to-neutral-900/30 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-6 sm:p-8`}
                 >
@@ -398,7 +398,8 @@ const ProjectDetail = () => {
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-neutral-800 flex items-center justify-center">
                       <span className="text-base sm:text-lg font-bold text-neutral-100">
-                        {project.testimonial.author.charAt(0)}
+                        {project.testimonial.author &&
+                          project.testimonial.author.charAt(0)}
                       </span>
                     </div>
                     <div>

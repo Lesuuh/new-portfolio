@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "secondary" | "white";
+  variant?: "primary" | "secondary" | "white" | "link";
   className?: string;
 };
 
@@ -29,6 +29,7 @@ export const Button = ({
       "border border-[#bfa76f] bg-transparent hover:bg-[#d8bf80] hover:border-[#bfa76f] hover:scale-105",
     white:
       "bg-white text-neutral-950 hover:bg-neutral-100 shadow hover:shadow-md hover:scale-105",
+    link: "bg-transparent text-[#bfa76f] hover:text-[#d8bf80] underline-offset-2 hover:underline shadow-none hover:shadow-none hover:scale-100 px-0 py-0",
   };
 
   return (

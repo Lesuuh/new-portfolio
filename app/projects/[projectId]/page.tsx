@@ -17,6 +17,7 @@ import {
   Code,
 } from "../../_components/Icons";
 import { Badge } from "@/app/_components/Badge";
+import { Button } from "@/app/_components/Button";
 
 // --- Configuration and Mock Data ---
 const GOLD_ACCENT = "#bfa76f"; // Primary Muted Gold
@@ -65,13 +66,14 @@ const ProjectDetail = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-neutral-900/90 backdrop-blur-sm shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           {/* Back Button (using a standard anchor tag for simplicity) */}
-          <a
-            href="#" // Placeholder for back action
+          <Button
+            variant="link"
+            onClick={() => router.back()}
             className={`flex items-center space-x-2 text-[${GOLD_ACCENT}] hover:text-[${GOLD_HOVER}] transition-colors group`}
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             <span className="text-sm font-medium">Back to Portfolio</span>
-          </a>
+          </Button>
 
           <div className="flex items-center gap-3">
             <a

@@ -17,7 +17,6 @@ import {
   Code,
 } from "../../_components/Icons";
 import { Badge } from "@/app/_components/Badge";
-import { Button } from "@/app/_components/Button";
 
 // --- Configuration and Mock Data ---
 const GOLD_ACCENT = "#bfa76f"; // Primary Muted Gold

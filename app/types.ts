@@ -57,7 +57,7 @@ export interface Project {
   image: string;
   github: string;
   live: string;
-  status: "Completed" | "Ongoing" | "Planned" | "Prototype";
+  status: "Completed" | "Ongoing" | "Planned" | "Prototype" | "Prototype / PWA";
   category: string;
   timeline: string;
   role: string;

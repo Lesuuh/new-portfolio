@@ -214,102 +214,195 @@ export const projects: Project[] = [
     id: 2,
     title: "Whispers",
     slug: "whispers-anonymous-blog",
-    subtitle: "Anonymous Expression Platform",
+    subtitle: "Anonymous Expression Platform (PWA)",
     description:
-      "A simple anonymous blogging web app where users can share thoughts and stories without revealing their identity.",
+      "Full-stack anonymous blogging platform where users share thoughts and stories without revealing identity. Progressive Web App (PWA) installable on mobile devices.",
     overview:
-      "Built a privacy-first blogging platform that allows users to post anonymously. Focused on clean UI, responsive design, and an easy-to-use posting workflow. Future plans include real-time updates, dark mode, and content moderation.",
+      "Built a privacy-first social platform that enables users to share their thoughts, stories, and experiences anonymously. Designed as a PWA, it can be installed on mobile devices, providing an app-like experience with offline support and responsive design.",
     problemStatement:
-      "Many people hesitate to share thoughts publicly due to privacy concerns or fear of judgment. Existing platforms rarely provide true anonymity.",
+      "Many people want to share their thoughts anonymously but hesitate due to privacy concerns. Existing social platforms pressure users to maintain a public persona and often lack mobile app accessibility.",
     solution:
-      "Created a web app allowing anonymous posts without collecting personal information. Posts are displayed in a clean feed, and users can interact without revealing identity. The app is responsive and intuitive.",
+      "Created a full-stack anonymous blogging platform using Supabase for backend storage and authentication, with a clean, intuitive interface. Built as a PWA to allow installation on mobile devices and offline access.",
     keyFeatures: [
       {
         title: "Anonymous Posting",
-        description:
-          "Users can share thoughts without providing personal information.",
+        description: "Users can post thoughts without revealing identity.",
       },
       {
-        title: "Clean Feed",
-        description: "All posts are displayed in a simple, scrollable feed.",
+        title: "Installable PWA",
+        description:
+          "Platform can be installed on mobile devices for app-like experience.",
       },
       {
         title: "Responsive Design",
-        description: "Optimized for desktop and mobile devices.",
+        description: "Optimized for all devices with a mobile-first approach.",
       },
-      // Future features: Real-time updates, dark mode, content moderation
+      {
+        title: "Infinite Scroll",
+        description: "Smooth browsing of posts with pagination.",
+      },
     ],
     technicalHighlights: [
       {
-        title: "Full-Stack Architecture",
+        title: "Supabase Backend",
         description:
-          "Built frontend with React/Next.js and backend with Node.js/Express.",
+          "Handles authentication, data storage, and secure anonymous sessions.",
       },
       {
-        title: "Database Management",
+        title: "PWA Implementation",
         description:
-          "Posts stored securely in Supabase Postgres without storing user-identifiable data.",
+          "Service workers, manifest, and offline caching enable installation and offline support.",
       },
       {
-        title: "Type Safety",
+        title: "Frontend Optimization",
         description:
-          "TypeScript used across frontend and backend to prevent runtime errors.",
+          "Efficient React components and Tailwind styling for fast rendering.",
       },
     ],
     challenges: [
       {
-        title: "Maintaining User Anonymity",
-        description:
-          "Users needed to post without revealing identity or creating accounts.",
-        solution:
-          "Implemented anonymous session-based posting and avoided collecting emails or personal info.",
+        title: "Anonymous Authentication",
+        description: "Securing user sessions without collecting personal info.",
+        solution: "Implemented session-based tokens with no PII stored.",
       },
       {
-        title: "Data Storage & Security",
-        description:
-          "Ensuring posts are stored securely without linking to user identity.",
+        title: "Offline Support",
+        description: "Ensuring smooth experience when network is intermittent.",
         solution:
-          "Used Supabase with strict row-level security and minimal metadata.",
+          "Configured service workers to cache key resources and posts.",
       },
       {
-        title: "Responsive Design",
-        description: "App needed to work well on all devices.",
-        solution:
-          "Built fully responsive layouts tested on mobile and desktop screens.",
+        title: "Mobile Responsiveness",
+        description: "Making the PWA look good across all screen sizes.",
+        solution: "Built responsive UI components and tested across devices.",
       },
     ],
     impact: [
-      "Initial version allows anonymous sharing safely and efficiently.",
-      "Provides a safe space for users to express thoughts without judgment.",
-      // Future: Add metrics like number of posts, active users, engagement
+      "Demonstrates the feasibility of an anonymous blogging PWA.",
+      "Provides a foundation for mobile-friendly, privacy-focused social platforms.",
     ],
     tech: [
-      "React",
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
-      "Node.js",
-      "Express",
       "Supabase",
-      // Future: WebSocket (Socket.IO) for real-time updates
+      "React",
+      "Vite",
     ],
     image: "/images/whispers.webp",
     github: "https://github.com/Lesuuh/whispers",
     live: "https://whispers-gold.vercel.app/",
-    status: "Ongoing",
+    status: "Prototype / PWA",
     category: "Personal Project",
-    timeline: "4 days",
+    timeline: "3 months",
     role: "Full-Stack Developer",
     featured: true,
-    metrics: {
-      // Leave empty or minimal for now
-    },
     testimonial: {
       quote: "",
       author: "",
       role: "",
     },
+    metrics: {},
   },
+  // {
+  //   id: 2,
+  //   title: "Whispers",
+  //   slug: "whispers-anonymous-blog",
+  //   subtitle: "Anonymous Expression Platform",
+  //   description:
+  //     "A simple anonymous blogging web app where users can share thoughts and stories without revealing their identity.",
+  //   overview:
+  //     "Built a privacy-first blogging platform that allows users to post anonymously. Focused on clean UI, responsive design, and an easy-to-use posting workflow. Future plans include real-time updates, dark mode, and content moderation.",
+  //   problemStatement:
+  //     "Many people hesitate to share thoughts publicly due to privacy concerns or fear of judgment. Existing platforms rarely provide true anonymity.",
+  //   solution:
+  //     "Created a web app allowing anonymous posts without collecting personal information. Posts are displayed in a clean feed, and users can interact without revealing identity. The app is responsive and intuitive.",
+  //   keyFeatures: [
+  //     {
+  //       title: "Anonymous Posting",
+  //       description:
+  //         "Users can share thoughts without providing personal information.",
+  //     },
+  //     {
+  //       title: "Clean Feed",
+  //       description: "All posts are displayed in a simple, scrollable feed.",
+  //     },
+  //     {
+  //       title: "Responsive Design",
+  //       description: "Optimized for desktop and mobile devices.",
+  //     },
+  //     // Future features: Real-time updates, dark mode, content moderation
+  //   ],
+  //   technicalHighlights: [
+  //     {
+  //       title: "Full-Stack Architecture",
+  //       description:
+  //         "Built frontend with React/Next.js and backend with Node.js/Express.",
+  //     },
+  //     {
+  //       title: "Database Management",
+  //       description:
+  //         "Posts stored securely in Supabase Postgres without storing user-identifiable data.",
+  //     },
+  //     {
+  //       title: "Type Safety",
+  //       description:
+  //         "TypeScript used across frontend and backend to prevent runtime errors.",
+  //     },
+  //   ],
+  //   challenges: [
+  //     {
+  //       title: "Maintaining User Anonymity",
+  //       description:
+  //         "Users needed to post without revealing identity or creating accounts.",
+  //       solution:
+  //         "Implemented anonymous session-based posting and avoided collecting emails or personal info.",
+  //     },
+  //     {
+  //       title: "Data Storage & Security",
+  //       description:
+  //         "Ensuring posts are stored securely without linking to user identity.",
+  //       solution:
+  //         "Used Supabase with strict row-level security and minimal metadata.",
+  //     },
+  //     {
+  //       title: "Responsive Design",
+  //       description: "App needed to work well on all devices.",
+  //       solution:
+  //         "Built fully responsive layouts tested on mobile and desktop screens.",
+  //     },
+  //   ],
+  //   impact: [
+  //     "Initial version allows anonymous sharing safely and efficiently.",
+  //     "Provides a safe space for users to express thoughts without judgment.",
+  //     // Future: Add metrics like number of posts, active users, engagement
+  //   ],
+  //   tech: [
+  //     "Next.js",
+  //     "TypeScript",
+  //     "Tailwind CSS",
+  //     "Node.js",
+  //     "Express",
+  //     "Supabase",
+  //     // Future: WebSocket (Socket.IO) for real-time updates
+  //   ],
+  //   image: "/images/whispers.webp",
+  //   github: "https://github.com/Lesuuh/whispers",
+  //   live: "https://whispers-gold.vercel.app/",
+  //   status: "Ongoing",
+  //   category: "Personal Project",
+  //   timeline: "4 days",
+  //   role: "Full-Stack Developer",
+  //   featured: true,
+  //   metrics: {
+  //     // Leave empty or minimal for now
+  //   },
+  //   testimonial: {
+  //     quote: "",
+  //     author: "",
+  //     role: "",
+  //   },
+  // },
   {
     id: 3,
     title: "Intervue",

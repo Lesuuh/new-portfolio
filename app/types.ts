@@ -20,24 +20,12 @@ export interface Testimonial {
   role?: string;
 }
 
-export interface Metrics {
+export interface Metrics extends Record<string, string | undefined> {
   users?: string;
-  uptime?: string;
-  loadTime?: string;
-  costSaving?: string;
-  latency?: string;
-  coverage?: string;
-  interviews?: string;
-  accuracy?: string;
-  timeSaved?: string;
-  lighthouse?: string;
-  conversion?: string;
   performance?: string;
   seo?: string;
   accessibility?: string;
-  bestPractices?: string;
-  confidenceBoost?: string;
-  progressLoss?: string;
+  lighthouse?: string;
 }
 
 export interface Project {
@@ -61,6 +49,7 @@ export interface Project {
   category: string;
   timeline: string;
   role: string;
+
   featured: boolean;
   metrics: Metrics;
   testimonial?: Testimonial;

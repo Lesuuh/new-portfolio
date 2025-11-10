@@ -136,7 +136,6 @@ export const projects: Project[] = [
       seo: "92",
       accessibility: "92",
       bestPractices: "100",
-      users: "200+",
       confidenceBoost: "High",
       progressLoss: "0%",
     },
@@ -238,7 +237,7 @@ export const projects: Project[] = [
     category: "Personal Project",
     timeline: "3 months",
     metrics: {
-      users: "100+",
+      // users: "100+",
       offlineSupport: "Yes",
       privacyFocused: "High",
     },

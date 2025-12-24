@@ -333,7 +333,7 @@ export const projects: Project[] = [
       "Provides foundation for building production-ready recruiter and candidate workflows.",
     ],
     metrics: {
-      interviewsSimulated: "50+",
+      interviewsSimulated: "20+",
       aiGeneratedQuestions: "100+",
       candidateFeedback: "Automated",
     },

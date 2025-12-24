@@ -10,11 +10,11 @@ import {
   AlertCircle,
   ArrowLeft,
   Github,
-  Sparkles,
-  Zap,
-  Target,
-  TrendingUp,
-  Code,
+  // Sparkles,
+  // Zap,
+  // Target,
+  // TrendingUp,
+  // Code,
 } from "../../_components/Icons";
 import { Badge } from "@/app/_components/Badge";
 import { Button } from "@/app/_components/Button";
@@ -200,175 +200,111 @@ const ProjectDetail = () => {
           </aside>
 
           {/* Right Main Content */}
-          <div className="lg:col-span-2 space-y-12 sm:space-y-16">
-            {/* Problem */}
-            <section>
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
-                  The Challenge
-                </h2>
-              </div>
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+          <div className="lg:col-span-2 space-y-8 sm:space-y-12">
+            {/* Overview (Problem + Solution) */}
+            <section className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                {/* <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" /> */}
+                Overview
+              </h2>
+              <p className="text-sm text-neutral-300 leading-relaxed">
                 {project.problemStatement}
               </p>
-            </section>
-
-            {/* Solution */}
-            <section>
-              <div className="flex items-center gap-3 mb-4 sm:mb-6">
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
-                  The Solution
-                </h2>
-              </div>
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              <p className="text-sm text-neutral-300 leading-relaxed">
                 {project.solution}
               </p>
             </section>
 
             {/* Challenges & Solutions */}
             {project.challenges?.length > 0 && (
-              <section>
-                <div className="flex items-center gap-3 mb-6 sm:mb-8">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    Challenges & Solutions
-                  </h2>
-                </div>
-                <div className="space-y-6">
+              <section className="space-y-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                  {/* <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" /> */}
+                  Challenges & Solutions
+                </h2>
+                <div className="grid gap-4 sm:grid-cols-2">
                   {project.challenges.map((item, idx) => (
                     <div
                       key={idx}
-                      className={`bg-neutral-900/30 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-5 sm:p-6 hover:border-[${GOLD_HOVER}] transition-colors`}
+                      className="bg-neutral-900/30 rounded-xl p-4 sm:p-5 hover:border-[${GOLD_HOVER}] transition-colors"
                     >
-                      <h3 className="text-lg font-semibold text-white mb-2">
+                      <h3 className="text-base font-semibold text-white">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-neutral-300 mb-3">
+                      <p className="text-sm text-neutral-300">
                         {item.description}
                       </p>
-                      <div
-                        className={`pl-3 sm:pl-4 border-l-2 border-[${GOLD_ACCENT}]/40`}
-                      >
-                        <p className="text-sm text-neutral-300 italic">
-                          → {item.solution}
-                        </p>
-                      </div>
+                      <p className="text-sm text-neutral-400 italic mt-2">
+                        → {item.solution}
+                      </p>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Impact */}
-            <section
-              className={`bg-neutral-900/30 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-6 sm:p-8`}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                <h2 className="text-xl sm:text-2xl font-bold text-white">
-                  Impact & Results
-                </h2>
-              </div>
-              <div className="space-y-3">
-                {project.impact.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <div
-                      className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[${GOLD_ACCENT}] flex items-center justify-center mt-0.5`}
-                    >
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-neutral-950 rounded-full"></div>
-                    </div>
-                    <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                      {item}
+            {/* Features & Technical Highlights Combined */}
+            <section className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                {/* <Target className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" /> */}
+                Features & Technical Highlights
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {project.keyFeatures?.map((feature, idx) => (
+                  <div key={idx} className="bg-neutral-900/20 rounded-xl p-4">
+                    <h3 className="text-base font-semibold text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-neutral-300">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+                {project.technicalHighlights?.map((item, idx) => (
+                  <div key={idx} className="bg-neutral-900/20 rounded-xl p-4">
+                    <h3 className="text-base font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-neutral-300">
+                      {item.description}
                     </p>
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Key Features - Optional */}
-            {project.keyFeatures?.length > 0 && (
-              <section>
-                <div className="flex items-center gap-3 mb-6 sm:mb-8">
-                  <Target className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    Key Features
-                  </h2>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {project.keyFeatures.map((feature, idx) => (
-                    <div
-                      key={idx}
-                      className={`bg-neutral-900/30 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-4 sm:p-5 hover:border-[${GOLD_HOVER}] hover:bg-[${GOLD_ACCENT}]/10 transition-all duration-300 group`}
-                    >
-                      <h3
-                        className={`text-base font-semibold text-white mb-2 group-hover:text-[${GOLD_ACCENT}] transition-colors`}
-                      >
-                        {feature.title}
-                      </h3>
-                      <p className="text-sm text-neutral-300 leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Technical Highlights - Optional */}
-            {project.technicalHighlights?.length > 0 && (
-              <section
-                className={`bg-neutral-900/30 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-6 sm:p-8`}
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <Code className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" />
-                  <h2 className="text-xl sm:text-2xl font-bold text-white">
-                    Technical Highlights
-                  </h2>
-                </div>
-                <div className="space-y-5">
-                  {project.technicalHighlights.map((item, idx) => (
-                    <div key={idx} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-neutral-800 flex items-center justify-center mt-0.5">
-                        <span className="text-xs sm:text-sm font-bold text-neutral-100">
-                          {idx + 1}
-                        </span>
-                      </div>
-                      <div>
-                        <h3 className="text-base font-semibold text-white mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-neutral-300 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Metrics - Compact */}
-            {project.metrics && Object.keys(project.metrics).length > 0 && (
-              <section className="px-4 sm:px-0">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+            {/* Impact & Metrics */}
+            <section className="bg-neutral-900/40 rounded-xl p-6 sm:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                {/* <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-100" /> */}
+                Impact & Metrics
+              </h2>
+              <ul className="mt-4 space-y-2">
+                {project.impact.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="text-sm sm:text-base text-neutral-300"
+                  >
+                    • {item}
+                  </li>
+                ))}
+              </ul>
+              {project.metrics && (
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 text-center">
                   {Object.entries(project.metrics).map(([key, value]) => (
                     <div
                       key={key}
-                      className={`bg-neutral-800/50 backdrop-blur-sm border border-[${GOLD_ACCENT}]/40 rounded-xl p-2 sm:p-3 hover:bg-[${GOLD_ACCENT}]/10 transition-colors`}
+                      className="bg-[${GOLD_ACCENT}]/20 rounded-xl p-2 sm:p-3 font-semibold"
                     >
-                      <p className="text-white font-semibold text-sm sm:text-base">
-                        {value}
-                      </p>
+                      <p className="text-white text-sm sm:text-base">{value}</p>
                       <p className="text-neutral-300 text-[9px] sm:text-xs uppercase tracking-wider">
                         {key.replace(/([A-Z])/g, " $1").trim()}
                       </p>
                     </div>
                   ))}
                 </div>
-              </section>
-            )}
+              )}
+            </section>
           </div>
         </div>
       </main>

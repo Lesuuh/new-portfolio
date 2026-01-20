@@ -171,37 +171,49 @@ export const projects: Project[] = [
     keyFeatures: [
       {
         title: "Anonymous Posting",
-        description: "Users can post thoughts without revealing identity.",
+        description:
+          "Users can post thoughts without revealing their identity.",
+      },
+      {
+        title: "Anonymous Interaction",
+        description:
+          "Like, comment, and share posts without creating an account.",
       },
       {
         title: "Installable PWA",
         description:
-          "Can be installed on mobile devices for app-like experience.",
-      },
-      {
-        title: "Responsive Design",
-        description: "Optimized for desktop, tablet, and mobile screens.",
+          "Installable on mobile devices for a native app-like experience.",
       },
       {
         title: "Smooth Browsing",
-        description: "Infinite scroll for effortless post navigation.",
+        description: "Infinite scrolling for seamless content discovery.",
+      },
+      {
+        title: "Fast & Responsive UI",
+        description:
+          "Optimized layout that works smoothly across all screen sizes.",
       },
     ],
     technicalHighlights: [
       {
-        title: "Supabase Backend",
+        title: "Anonymous Identity Architecture",
         description:
-          "Handles authentication, anonymous sessions, and secure data storage.",
+          "Designed a custom anonymous identity system using HMAC hashing, rotating tokens, and secure httpOnly cookies to provide persistent user tracking without authentication.",
       },
       {
-        title: "PWA Implementation",
+        title: "Abuse Prevention & Rate Limiting Layer",
         description:
-          "Service workers and manifest enable installation and offline access.",
+          "Implemented per-identity rate limiting and action throttling to prevent spam, flooding, and manipulation in an anonymous environment.",
       },
       {
-        title: "Frontend Optimization",
+        title: "PWA Infrastructure",
         description:
-          "Efficient React components with Tailwind styling for fast rendering.",
+          "Configured service workers and web manifest for offline support and installability, enabling an app-like experience on mobile devices.",
+      },
+      {
+        title: "Backend Integration Layer",
+        description:
+          "Integrated Express middleware pipeline with Supabase for identity persistence, post ownership, and interaction tracking.",
       },
     ],
     challenges: [
@@ -235,7 +247,7 @@ export const projects: Project[] = [
     featured: true,
     status: "Prototype / PWA",
     category: "Personal Project",
-    timeline: "3 months",
+    timeline: "1 month",
     metrics: {
       // users: "100+",
       offlineSupport: "Yes",

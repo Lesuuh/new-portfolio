@@ -250,16 +250,6 @@ const ProjectDetail = () => {
                 Features & Technical Highlights
               </h2>
               <div className="grid gap-4 sm:grid-cols-2">
-                {project.keyFeatures?.map((feature, idx) => (
-                  <div key={idx} className="bg-neutral-900/20 rounded-xl p-4">
-                    <h3 className="text-base font-semibold text-white">
-                      {feature.title}
-                    </h3>
-                    <p className="text-sm text-neutral-300">
-                      {feature.description}
-                    </p>
-                  </div>
-                ))}
                 {project.technicalHighlights?.map((item, idx) => (
                   <div key={idx} className="bg-neutral-900/20 rounded-xl p-4">
                     <h3 className="text-base font-semibold text-white">
@@ -270,6 +260,17 @@ const ProjectDetail = () => {
                     </p>
                   </div>
                 ))}
+                {project.keyFeatures?.map((feature, idx) => (
+                  <div key={idx} className="bg-neutral-900/20 rounded-xl p-4">
+                    <h3 className="text-base font-semibold text-white">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-neutral-300">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+                
               </div>
             </section>
 

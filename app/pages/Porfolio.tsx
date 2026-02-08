@@ -91,7 +91,7 @@ const Portfolio = () => {
                   )}
                   <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-transparent group-hover:bg-neutral-700 transition-colors duration-300 opacity-50"></span>
                 </button>
-              )
+              ),
             )}
           </div>
 
@@ -137,7 +137,7 @@ const Portfolio = () => {
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                   </button>
-                )
+                ),
               )}
             </div>
           </div>
@@ -212,7 +212,7 @@ const Portfolio = () => {
                   <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
                 </Button>
                 <a
-                  href="/_1LesuuhNewCV.pdf"
+                  href="/_1lesuuhCV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className=""

@@ -262,115 +262,95 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Intervue",
-    slug: "intervue-ai-interview",
-    subtitle: "AI-Powered Interview Platform (Prototype)",
+    title: "CyberTech",
+    slug: "cybertech-electronic-store",
+    subtitle: "Premium Electronic & Hardware Manifest",
     description:
-      "Prototype of an AI-driven mock interview platform allowing recruiters to create and simulate technical interviews with automated scoring and candidate feedback.",
+      "A high-performance electronics store designed for enthusiasts, featuring precision components and architectural UI.",
     overview:
-      "Built a prototype platform leveraging AI for question generation and voice-based candidate interactions, focusing on structured evaluation and an intuitive experience for recruiters and candidates.",
+      "Built an specialized electronics marketplace with a focus on 'Data-First' design. The platform features a robust 'Hardware Manifest' system for order tracking, technical spec readouts for high-end components, and a secure terminal-style checkout experience.",
     problemStatement:
-      "Recruiters spend significant time on repetitive interviews, causing inconsistent evaluations, scheduling conflicts, and bias in assessment.",
+      "Most electronic stores use generic layouts that fail to highlight the technical complexity and premium nature of high-end components.",
     solution:
-      "Developed a platform using OpenAI for AI-generated questions and Vapi for voice-based candidate interactions. Implemented automated scoring and structured interview templates to streamline recruiter workflows and improve candidate experience.",
+      "Developed a monochromatic, industrial-grade e-commerce interface that treats electronics as precision assets, utilizing clean grids and technical data visualizations to drive user confidence.",
     keyFeatures: [
       {
-        title: "AI Question Generation",
-        description: "Generates role-specific interview questions using AI.",
-      },
-      {
-        title: "Voice Interview Simulation",
-        description: "Simulates candidate interactions via voice technology.",
-      },
-      {
-        title: "Automated Scoring",
+        title: "Hardware Manifest",
         description:
-          "Weighted scoring system assessing technical accuracy, problem-solving, and communication.",
+          "A high-density shopping cart designed to look like a technical inventory list.",
       },
       {
-        title: "Recruiter Dashboard (Prototype)",
-        description: "Manage interview templates, sessions, and scoring.",
-      },
-      {
-        title: "Candidate Portal (Prototype)",
+        title: "Spec Grid System",
         description:
-          "Simplified interface for candidates to participate in mock interviews.",
+          "Adaptive data rows for technical specs like GPU clock speeds, SSD IOPS, and power efficiency.",
+      },
+      {
+        title: "Logistics Terminal",
+        description:
+          "A dark-mode checkout interface that streamlines payment and shipping for high-value items.",
+      },
+      {
+        title: "Component Verification",
+        description:
+          "Built-in badges for certified hardware and performance guarantees.",
       },
     ],
     technicalHighlights: [
       {
-        title: "OpenAI Integration",
-        description: "Context-aware question generation using GPT-4 prompts.",
-      },
-      {
-        title: "Vapi Voice Integration",
+        title: "Real-time Inventory State",
         description:
-          "Simulated realistic candidate interactions using Vapi SDK.",
+          "Managed complex cart states with high-precision price and tax calculations for multi-item orders.",
       },
       {
-        title: "State Management",
-        description: "Managed interview session flows using Zustand.",
-      },
-      {
-        title: "Database Design",
+        title: "Adaptive Data Architecture",
         description:
-          "Structured Supabase schema for interviews, templates, and scoring data.",
+          "Custom grid logic that re-orients technical data lists into vertical manifests on mobile devices.",
+      },
+      {
+        title: "Motion-Assisted UX",
+        description:
+          "Used Framer Motion for smooth state transitions when updating quantities or removing hardware from the manifest.",
       },
     ],
     challenges: [
       {
-        title: "AI Question Consistency",
+        title: "Mobile Technical Density",
         description:
-          "Ensuring AI-generated questions remain relevant across interviews.",
+          "Ensuring long technical spec names didn't break layouts on small mobile screens.",
         solution:
-          "Used prompt templates with validation logic to maintain fairness and clarity.",
+          "Implemented a dynamic wrap-around data system that prioritizes legibility over truncation.",
       },
       {
-        title: "Scoring Accuracy",
+        title: "Premium Aesthetics",
         description:
-          "Designing fair evaluation criteria across different skill levels.",
+          "Avoiding the 'template' look common in electronic stores.",
         solution:
-          "Developed weighted scoring system combining multiple evaluation dimensions.",
-      },
-      {
-        title: "Intuitive Interface",
-        description:
-          "Making dashboards and candidate portal clear and easy to navigate.",
-        solution:
-          "Built simple, structured UI components for dashboards and portals.",
+          "Leveraged an architectural design system with 1px borders and high-contrast typography.",
       },
     ],
     impact: [
-      "Demonstrates technical feasibility of AI-powered interview automation.",
-      "Provides foundation for building production-ready recruiter and candidate workflows.",
+      "Created a unique niche interface for high-end electronic consumers.",
+      "Ensured zero data loss during the checkout flow through persistent state sync.",
     ],
-    metrics: {
-      interviewsSimulated: "20+",
-      aiGeneratedQuestions: "100+",
-      candidateFeedback: "Automated",
-    },
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Supabase",
-      "OpenAI",
-      "Vapi",
-      "Zustand",
-      "Tailwind CSS",
-    ],
-    image: "/images/intervue.webp",
-    github: "https://github.com/Lesuuh/intervue",
-    live: "https://intervue-test.vercel.app/",
-    role: "Full-Stack Developer",
-    status: "Prototype",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide"],
+    image: "/images/cybertech.webp",
+    github: "https://github.com/Lesuuh/cybertech",
+    live: "https://cybertech-henna.vercel.app/",
+    role: "Frontend Developer",
+    status: "Completed",
     featured: true,
-    category: "SaaS Product",
-    timeline: "3 weeks",
+    category: "E-Commerce / Tech",
+    timeline: "",
+    metrics: {
+      performance: "100",
+      responsiveness: "Optimized",
+      dataClarity: "High",
+    },
     testimonial: {
       quote:
-        "Intervue saved us hours of repetitive interviews while ensuring fair evaluation.",
-      author: "HR Manager",
-      role: "Recruiter",
+        "Finally, an electronics store that treats hardware with the technical respect it deserves.",
+      author: "Systems Architect",
+      role: "Customer",
     },
   },
 ];

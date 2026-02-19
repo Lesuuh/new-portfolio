@@ -493,7 +493,7 @@ const Portfolio = () => {
                 </Button>
               </a>
               <a
-                href="/_1LesuuhNewCV.pdf"
+                href="/_1lesuuhCV.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -532,7 +532,7 @@ const Portfolio = () => {
                 <Twitter className="w-6 h-6" />
               </a>
               <a
-                href="https://www.linkedin.com/in/lesuuh"
+                href="https://www.linkedin.com/in/uklesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-[#d8bf80] transition-colors"

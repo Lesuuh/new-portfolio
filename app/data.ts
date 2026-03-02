@@ -239,7 +239,7 @@ export const projects: Project[] = [
       "Proves feasibility of anonymous, privacy-focused PWA platforms.",
       "Provides a foundation for mobile-friendly, privacy-first social networks.",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "React"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase"],
     image: "/images/whispers.webp",
     github: "https://github.com/Lesuuh/whispers",
     live: "https://whispers-gold.vercel.app/",

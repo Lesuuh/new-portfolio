@@ -140,7 +140,7 @@ export const projects: Project[] = [
       progressLoss: "0%",
     },
     tech: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Recharts"],
-    image: "/images/new-noa.webp",
+    image: "/images/new-noa.png",
     github: "https://github.com/lesuuh/noa-web",
     live: "https://noa-web.vercel.app",
     role: "Fullstack Developer",

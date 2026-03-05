@@ -140,7 +140,7 @@ export const projects: Project[] = [
       progressLoss: "0%",
     },
     tech: ["React", "TypeScript", "Tailwind CSS", "Supabase", "Recharts"],
-    image: "/images/new-noa.png",
+    image: "/images/new-noa.webp",
     github: "https://github.com/lesuuh/noa-web",
     live: "https://noa-web.vercel.app",
     role: "Fullstack Developer",
@@ -351,6 +351,99 @@ export const projects: Project[] = [
         "Finally, an electronics store that treats hardware with the technical respect it deserves.",
       author: "Systems Architect",
       role: "Customer",
+    },
+  },
+  {
+    id: 4,
+    title: "Elite Estates",
+    slug: "elite-estates-real-estate-marketplace",
+    subtitle: "Modern Property Discovery & Curation Interface",
+    description:
+      "A sleek, high-end real estate storefront focused on a premium user experience and seamless property browsing.",
+    overview:
+      "Developed a responsive React application for browsing luxury properties. The project focuses on clean UI/UX, using the React Context API to manage a global 'Watchlist' and property filtering, while leveraging Unsplash APIs for high-quality architectural imagery.",
+    problemStatement:
+      "Users often find real estate websites cluttered and difficult to navigate on mobile, making the property search feel like a chore rather than an experience.",
+    solution:
+      "Built a minimalist, 'vibe-first' property platform using Tailwind CSS for a high-end aesthetic and React's Context API to allow users to save and track properties across the site without page reloads.",
+    keyFeatures: [
+      {
+        title: "Global Watchlist",
+        description:
+          "Allows users to save properties to a persistent list while browsing.",
+      },
+      {
+        title: "Dynamic Property Filtering",
+        description:
+          "Filter listings by category and price range to find specific estate types instantly.",
+      },
+      {
+        title: "High-Resolution Gallery",
+        description:
+          "Integrated high-quality architectural photography to maintain a premium brand feel.",
+      },
+      {
+        title: "Mobile-First Navigation",
+        description:
+          "A fully responsive layout designed for smooth scrolling on handheld devices.",
+      },
+    ],
+    technicalHighlights: [
+      {
+        title: "Context API State Management",
+        description:
+          "Used React Context to handle the Watchlist state and property filtering logic globally across components.",
+      },
+      {
+        title: "Declarative UI Patterns",
+        description:
+          "Implemented clean, reusable React components to ensure UI consistency and easy maintenance.",
+      },
+      {
+        title: "Tailwind Utility Architecture",
+        description:
+          "Leveraged Tailwind's utility classes to build a custom, high-contrast design system without external CSS libraries.",
+      },
+    ],
+    challenges: [
+      {
+        title: "UI Density",
+        description:
+          "Balancing high-quality images with essential property data on small screens.",
+        solution:
+          "Used a card-based layout with conditional rendering to prioritize visuals while keeping data accessible.",
+      },
+      {
+        title: "State Persistence",
+        description:
+          "Maintaining the user's Watchlist throughout a browsing session.",
+        solution:
+          "Centralized data flow through a main Context Provider to ensure the Watchlist count updates instantly across the UI.",
+      },
+    ],
+    impact: [
+      "Created a modern, aesthetic alternative to traditional, data-heavy real estate sites.",
+      "Demonstrated efficient state management using built-in React hooks without needing external libraries.",
+    ],
+    metrics: {
+      performance: "Optimized",
+      responsiveness: "Fluid",
+      interactivity: "High",
+      assetQuality: "HD",
+    },
+    tech: ["React", "Tailwind CSS", "Context API", "Lucide React"],
+    image: "/images/elitepro.webp",
+    github: "https://github.com/Lesuuh/elite_estates",
+    live: "https://elite-estates-liart.vercel.app/",
+    role: "Frontend Developer",
+    status: "Completed",
+    featured: true,
+    category: "Real Estate / UI",
+    timeline: "2 weeks",
+    testimonial: {
+      quote: "",
+      author: "",
+      role: "",
     },
   },
 ];

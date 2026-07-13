@@ -61,11 +61,11 @@ const Portfolio = () => {
   };
 
   return (
-    <div className="bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 text-neutral-100 min-h-screen">
+    <div className="bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 text-neutral-50 min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-500  bg-neutral-900/90 backdrop-blur-sm shadow-xl">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <div className="font-semibold text-lg text-[#bfa76f] tracking-tight">
+          <div className="font-semibold text-lg text-gold tracking-tight">
             Lesuuh
           </div>
 
@@ -78,7 +78,7 @@ const Portfolio = () => {
                   onClick={() => scrollToSection(section)}
                   className={`text-sm transition-colors relative group ${
                     activeSection === section
-                      ? `text-[#bfa767] font-medium` // Active link text in gold
+                      ? `text-gold-active font-medium` // Active link text in gold
                       : "text-neutral-300 hover:text-neutral-200"
                   }`}
                 >
@@ -86,7 +86,7 @@ const Portfolio = () => {
                   {/* Active Indicator - Gold Bar */}
                   {activeSection === section && (
                     <span
-                      className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-[#bfa767] rounded-full`}
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-gold-active rounded-full`}
                     ></span>
                   )}
                   <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-transparent group-hover:bg-neutral-700 transition-colors duration-300 opacity-50"></span>
@@ -154,7 +154,7 @@ const Portfolio = () => {
             {/* Profile Image - Mobile First */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent)] pointer-events-none"></div>
+                <div className="absolute inset-0 bg-hero-glow pointer-events-none"></div>
 
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-neutral-700/40 shadow-xl relative">
                   <Image
@@ -166,7 +166,7 @@ const Portfolio = () => {
                     priority
                   />
                 </div>
-                <div className="absolute bottom-4 right-1 bg-[#bfa76f] w-8 h-8 rounded-full border-4 border-neutral-950 flex items-center justify-center">
+                <div className="absolute bottom-4 right-1 bg-gold w-8 h-8 rounded-full border-4 border-neutral-950 flex items-center justify-center">
                   <div className="w-2 h-2 bg-neutral-950 rounded-full animate-pulse"></div>
                 </div>
               </div>
@@ -178,15 +178,15 @@ const Portfolio = () => {
                 <p className="text-sm sm:text-base text-neutral-300 font-medium">
                   Frontend Developer
                 </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#bfa76f] leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight">
                   Lesuuh Ueh-Kabari
                 </h1>
                 <div className="flex items-center justify-center space-x-3">
-                  <div className="h-px w-12 bg-[#bfa76f]"></div>
+                  <div className="h-px w-12 bg-gold"></div>
                   <p className="text-base sm:text-lg ">
                     Building Production-Ready Solutions
                   </p>
-                  <div className="h-px w-12 bg-[#bfa76f]"></div>
+                  <div className="h-px w-12 bg-gold"></div>
                 </div>
               </div>
 
@@ -198,7 +198,7 @@ const Portfolio = () => {
 
               {/* Status Badge */}
               <div className="flex items-center justify-center space-x-2 text-sm ">
-                <div className="w-2 h-2 bg-[#bfa76f] rounded-full animate-pulse"></div>
+                <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
                 <span>Available for hire and projects</span>
               </div>
 
@@ -206,7 +206,7 @@ const Portfolio = () => {
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="group shadow-lg bg-[#bfa76f] text-neutral-950 hover:bg-[#d8bf80]"
+                  className="group shadow-lg bg-gold text-neutral-950 hover:bg-gold-hover"
                 >
                   View My Work
                   <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
@@ -243,9 +243,9 @@ const Portfolio = () => {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="flex flex-col items-center mt-12 sm:mt-16 text-[#bfa76f] space-y-2">
+            <div className="flex flex-col items-center mt-12 sm:mt-16 text-gold space-y-2">
               <span className="text-xs uppercase tracking-wide">Scroll</span>
-              <div className="w-px h-8 bg-[#bfa76f] animate-pulse"></div>
+              <div className="w-px h-8 bg-gold animate-pulse"></div>
             </div>
           </div>
         </section>
@@ -256,7 +256,7 @@ const Portfolio = () => {
           className="py-16 sm:py-24 px-4 sm:px-6 bg-neutral-800/60"
         >
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-[#bfa76f]">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-gold">
               About Me
             </h2>
 
@@ -270,7 +270,7 @@ const Portfolio = () => {
               </p>
 
               <div className="space-y-4 py-6">
-                <h3 className="text-xl font-semibold text-[#bfa76f]">
+                <h3 className="text-xl font-semibold text-gold">
                   What I bring:
                 </h3>
                 <div className="space-y-4 text-sm sm:text-base">
@@ -296,7 +296,7 @@ const Portfolio = () => {
                       key={i}
                       className="flex items-start space-x-3 p-3 rounded-lg bg-neutral-850/40"
                     >
-                      <div className="w-1.5 h-1.5 bg-[#bfa76f] rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 flex-shrink-0"></div>
                       <div>
                         <span className="font-semibold">{item.title}:</span>{" "}
                         <span className="text-neutral-200">{item.desc}</span>
@@ -313,7 +313,7 @@ const Portfolio = () => {
 
               {/* Skills */}
               <div className="pt-6">
-                <h3 className="text-lg font-semibold text-[#bfa76f] mb-4">
+                <h3 className="text-lg font-semibold text-gold mb-4">
                   Skills & Technologies
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -321,7 +321,7 @@ const Portfolio = () => {
                     <Badge
                       key={skill}
                       variant="outline"
-                      className="text-xs sm:text-sm border-[#bfa76f] text-[#bfa76f] hover:bg-[#d8bf80] hover:text-neutral-950"
+                      className="text-xs sm:text-sm border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
                     >
                       {skill}
                     </Badge>
@@ -343,7 +343,7 @@ const Portfolio = () => {
               {experiences.map((exp, i) => (
                 <div key={i} className="group">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-lg md:text-xl font-semibold text-[#bfa76f] group-hover:text-[#d8bf80] transition-colors">
+                    <h3 className="text-lg md:text-xl font-semibold text-gold group-hover:text-gold-hover transition-colors">
                       {exp.role}
                     </h3>
                     <span className="text-xs md:text-sm text-neutral-500">
@@ -359,7 +359,7 @@ const Portfolio = () => {
                     {exp.description.map((d, j) => (
                       <li
                         key={j}
-                        className="pl-3 relative before:content-['–'] before:absolute before:left-0 before:text-[#bfa76f]/70"
+                        className="pl-3 relative before:content-['–'] before:absolute before:left-0 before:text-gold/70"
                       >
                         {d}
                       </li>
@@ -375,7 +375,7 @@ const Portfolio = () => {
         <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#bfa76f]">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gold">
                 Featured Projects
               </h2>
               <p className="text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto">
@@ -389,7 +389,7 @@ const Portfolio = () => {
                 <Card
                   key={project.id}
                   onClick={() => handleCardClick(project)}
-                  className="group overflow-hidden hover:border-[#bfa76f] transition-all duration-300 cursor-pointer"
+                  className="group overflow-hidden hover:border-gold transition-all duration-300 cursor-pointer"
                 >
                   <div className="grid sm:grid-cols-2 gap-0">
                     {/* Image Section */}
@@ -401,7 +401,7 @@ const Portfolio = () => {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       {/* <div className="absolute top-3 left-3">
-                        <Badge className="bg-[#bfa76f]  text-xs">
+                        <Badge className="bg-gold  text-xs">
                           {project.category}
                         </Badge>
                       </div> */}
@@ -410,7 +410,7 @@ const Portfolio = () => {
                     {/* Info Section */}
                     <div className="p-6 flex flex-col justify-between">
                       <div className="space-y-3">
-                        <h3 className="text-xl sm:text-2xl font-bold text-[#bfa76f] group-hover:text-[#d8bf80] transition-colors">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gold group-hover:text-gold-hover transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
@@ -421,7 +421,7 @@ const Portfolio = () => {
                             <Badge
                               key={tech}
                               variant="outline"
-                              className="text-xs border-[#bfa76f] text-[#bfa76f] hover:bg-[#d8bf80] hover:text-neutral-950"
+                              className="text-xs border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
                             >
                               {tech}
                             </Badge>
@@ -440,7 +440,7 @@ const Portfolio = () => {
                           <Button
                             variant="primary"
                             size="sm"
-                            className="w-full border-[#bfa76f] text-[#bfa76f] hover:bg-[#d8bf80] hover:text-neutral-950"
+                            className="w-full border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
                           >
                             <Github className="w-3.5 h-3.5 mr-1.5" />
                             Code
@@ -456,7 +456,7 @@ const Portfolio = () => {
                           <Button
                             size="sm"
                             variant="white"
-                            className="w-full bg-[#bfa76f] text-neutral-950 hover:bg-[#d8bf80]"
+                            className="w-full bg-gold text-neutral-950 hover:bg-gold-hover"
                           >
                             <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
                             Live Demo
@@ -477,7 +477,7 @@ const Portfolio = () => {
           className="py-16 sm:py-24 px-4 sm:px-6 bg-neutral-800/60"
         >
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#bfa76f]">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gold">
               Let&apos;s Work Together
             </h2>
             <p className="text-neutral-300 text-base sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto">
@@ -487,7 +487,7 @@ const Portfolio = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="mailto:lesuuh01@gmail.com">
-                <Button className="w-full sm:w-auto min-w-[200px] bg-[#bfa76f] text-neutral-950 hover:bg-[#d8bf80]">
+                <Button className="w-full sm:w-auto min-w-[200px] bg-gold text-neutral-950 hover:bg-gold-hover">
                   <Mail className="w-4 h-4 mr-2" />
                   Email Me
                 </Button>
@@ -499,7 +499,7 @@ const Portfolio = () => {
               >
                 <Button
                   variant="white"
-                  className="w-full sm:w-auto min-w-[200px] border-[#bfa76f] text-[#bfa76f] hover:bg-[#d8bf80] hover:text-neutral-950"
+                  className="w-full sm:w-auto min-w-[200px] border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Resume
@@ -508,10 +508,10 @@ const Portfolio = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center gap-6 mt-12 pt-12 border-t border-[#bfa76f]/40">
+            <div className="flex justify-center gap-6 mt-12 pt-12 border-t border-gold/40">
               <a
                 href="mailto:lesuuh01@gmail.com"
-                className="text-white hover:text-[#d8bf80] transition-colors"
+                className="text-white hover:text-gold-hover transition-colors"
               >
                 <Mail className="w-6 h-6" />
               </a>
@@ -519,7 +519,7 @@ const Portfolio = () => {
                 href="https://github.com/lesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#d8bf80] transition-colors"
+                className="text-white hover:text-gold-hover transition-colors"
               >
                 <Github className="w-6 h-6" />
               </a>
@@ -527,7 +527,7 @@ const Portfolio = () => {
                 href="https://twitter.com/UKLesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#d8bf80] transition-colors"
+                className="text-white hover:text-gold-hover transition-colors"
               >
                 <Twitter className="w-6 h-6" />
               </a>
@@ -535,7 +535,7 @@ const Portfolio = () => {
                 href="https://www.linkedin.com/in/uklesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-[#d8bf80] transition-colors"
+                className="text-white hover:text-gold-hover transition-colors"
               >
                 <LinkedIn className="w-6 h-6" />
               </a>
@@ -545,9 +545,9 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 border-t border-[#bfa76f]/40">
+      <footer className="py-8 px-4 sm:px-6 border-t border-gold/40">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#bfa76f] text-sm">
+          <p className="text-gold text-sm">
             © 2025 Lesuuh Ueh-Kabari. All rights reserved.
           </p>
         </div>

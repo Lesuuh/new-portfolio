@@ -3,6 +3,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  /* Brand accent gold */
+  --color-gold: #bfa76f;
+  --color-gold-active: #bfa767;
+  --color-gold-hover: #d8bf80;
+
+  /* Custom neutral shade not in Tailwind's default scale */
+  --color-neutral-850: #1e1e1e;
+
+  /* Radial glow behind the hero profile photo */
+  --background-image-hero-glow: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -26,8 +26,8 @@ const Portfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "experience", "projects", "contact"];
-      const scrollPosition = window.scrollY + 120;
+      const sections = ["about", "experience", "projects", "contact"];
+      const scrollPosition = window.scrollY + 300;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -88,41 +88,38 @@ const Portfolio = () => {
           >
             Lesuuh
           </button>
-
-          {/* Desktop navigation */}
+          {/* Desktop navigation */}{" "}
           <div className="hidden items-center gap-7 md:flex">
+            {" "}
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative py-1 text-sm transition-colors ${
-                  activeSection === item.id
-                    ? "font-medium text-gold"
-                    : "text-neutral-400 hover:text-neutral-100"
-                }`}
+                className={`relative py-1 text-sm transition-colors cursor-pointer ${activeSection === item.id ? "font-medium text-gold" : "text-neutral-400 hover:text-neutral-100"}`}
               >
-                {item.label}
-
+                {" "}
+                {item.label}{" "}
                 {activeSection === item.id && (
                   <span className="absolute -bottom-2 left-0 right-0 mx-auto h-0.5 w-4 rounded-full bg-gold" />
-                )}
+                )}{" "}
               </button>
-            ))}
+            ))}{" "}
           </div>
-
-          {/* Mobile menu button */}
+          {/* Mobile menu button */}{" "}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             className="rounded-lg p-2 text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
+            {" "}
             <svg
               className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
+              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -132,34 +129,51 @@ const Portfolio = () => {
                     ? "M6 18L18 6M6 6l12 12"
                     : "M4 6h16M4 12h16M4 18h16"
                 }
-              />
-            </svg>
+              />{" "}
+            </svg>{" "}
           </button>
         </div>
-
-        {/* Mobile navigation */}
+        {/* Mobile navigation */}{" "}
         {mobileMenuOpen && (
-          <div className="border-t border-neutral-800 bg-neutral-950 md:hidden">
-            <div className="mx-auto max-w-6xl space-y-1 px-4 py-4 sm:px-6">
+          <div className="fixed inset-0 h-screen z-50 bg-neutral-950 flex flex-col items-center justify-center border-3 p-6 md:hidden">
+            {/* Top Bar with Close Button */}
+            <div className="absolute top-5 right-5 flex items-center  pb-4 ">
+              {/* <span className="text-xl font-bold tracking-tight">Brand</span> */}
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close menu"
+                className="rounded-lg p-2 text-4xl text-neutral-400 hover:bg-neutral-800 hover:text-white"
+              >
+                &times;
+              </button>
+            </div>
+            {/* Navigation Links */}{" "}
+            <div className="">
+              {" "}
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`block w-full rounded-lg px-4 py-3 text-left text-sm transition-colors ${
-                    activeSection === item.id
-                      ? "bg-neutral-800 text-gold"
-                      : "text-neutral-300 hover:bg-neutral-900 hover:text-white"
-                  }`}
+                  onClick={() => {
+                    scrollToSection(item.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`block w-full rounded-xl px-6 py-4 text-center text-2xl cursor-pointers font-medium transition-colors ${activeSection === item.id ? "bg-neutral-800 text-amber-400" : "text-neutral-300 hover:bg-neutral-800 hover:text-white"}`}
                 >
-                  {item.label}
+                  {" "}
+                  {item.label}{" "}
                 </button>
-              ))}
-            </div>
+              ))}{" "}
+            </div>{" "}
+            {/* Footer */}{" "}
+            <div className="absolute bottom-0 pb-4  text-center text-xs text-neutral-500">
+              {" "}
+              © {new Date().getFullYear()} Brand. All rights reserved.{" "}
+            </div>{" "}
           </div>
         )}
       </nav>
 
-      <main>
+      <main className="">
         {/* =========================================================
             HERO
         ========================================================= */}
@@ -182,7 +196,9 @@ const Portfolio = () => {
 
               <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                 I build{" "}
-                <span className="text-gold">reliable web applications</span>{" "}
+                <span className="text-amber-800">
+                  reliable web applications
+                </span>{" "}
                 that solve real problems.
               </h1>
 
@@ -202,7 +218,7 @@ const Portfolio = () => {
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="group bg-gold text-neutral-950 shadow-lg shadow-gold/10 hover:bg-gold-hover"
+                  className="group bg-gold text-neutral-950 shadow-lg shadow-gold/10 hover:bg-gold-hover cursor-pointer"
                 >
                   View My Work
                   <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
@@ -215,7 +231,7 @@ const Portfolio = () => {
                 >
                   <Button
                     variant="white"
-                    className="w-full border border-neutral-700 bg-transparent text-neutral-100 hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
+                    className="w-full border border-neutral-700 bg-transparent text-neutral-100  sm:w-auto cursor-pointer"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Resume
@@ -517,7 +533,7 @@ const Portfolio = () => {
                           className="flex-1"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <Button className="w-full bg-gold text-neutral-950 hover:bg-gold-hover">
+                          <Button className="w-full bg-gold text-neutral-950 hover:bg-gold-hover cursor-pointer ">
                             <ExternalLink className="mr-2 h-4 w-4" />
                             Live Demo
                           </Button>
@@ -532,7 +548,7 @@ const Portfolio = () => {
                         >
                           <Button
                             variant="white"
-                            className="w-full border border-neutral-700 bg-transparent text-neutral-200 hover:border-neutral-500 hover:bg-neutral-900"
+                            className="w-full border border-neutral-700 bg-transparent text-neutral-200 cursor-pointer"
                           >
                             <Github className="mr-2 h-4 w-4" />
                             View Code
@@ -569,7 +585,7 @@ const Portfolio = () => {
 
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <a href="mailto:lesuuh01@gmail.com">
-                <Button className="w-full min-w-[180px] bg-gold text-neutral-950 hover:bg-gold-hover sm:w-auto">
+                <Button className="w-full min-w-[180px] bg-gold text-neutral-950 hover:bg-gold-hover sm:w-auto cursor-pointer">
                   <Mail className="mr-2 h-4 w-4" />
                   Email Me
                 </Button>
@@ -582,7 +598,7 @@ const Portfolio = () => {
               >
                 <Button
                   variant="white"
-                  className="w-full min-w-[180px] border border-neutral-700 bg-transparent text-neutral-200 hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
+                  className="w-full min-w-[180px] border border-neutral-700 bg-transparent text-neutral-200 cursor-pointer sm:w-auto"
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Resume
@@ -643,7 +659,7 @@ const Portfolio = () => {
 
           <button
             onClick={() => scrollToSection("home")}
-            className="text-sm text-neutral-500 transition-colors hover:text-gold"
+            className="text-sm text-neutral-500 transition-colors hover:text-gold cursor-pointer"
           >
             Back to top ↑
           </button>

@@ -135,7 +135,7 @@ const Portfolio = () => {
         </div>
         {/* Mobile navigation */}{" "}
         {mobileMenuOpen && (
-          <div className="fixed inset-0 h-screen z-50 bg-neutral-950 flex flex-col items-center justify-center border-3 p-6 md:hidden">
+          <div className="fixed inset-0 h-screen z-50 bg-neutral-950 flex flex-col items-center justify-center p-6 md:hidden">
             {/* Top Bar with Close Button */}
             <div className="absolute top-5 right-5 flex items-center  pb-4 ">
               {/* <span className="text-xl font-bold tracking-tight">Brand</span> */}

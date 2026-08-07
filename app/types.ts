@@ -51,6 +51,6 @@ export interface Project {
   role: string;
 
   featured: boolean;
-  metrics: Metrics;
+  metrics?: Metrics;
   testimonial?: Testimonial;
 }

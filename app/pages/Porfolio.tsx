@@ -19,18 +19,22 @@ import {
 import { Project } from "../types";
 
 const Portfolio = () => {
-  const [activeSection, setActiveSection] = useState("hero");
+  const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "about", "works", "projects", "contact"];
-      const scrollPosition = window.scrollY + 100;
+      const sections = ["home", "about", "experience", "projects", "contact"];
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
+
         if (element) {
           const { offsetTop, offsetHeight } = element;
+
           if (
             scrollPosition >= offsetTop &&
             scrollPosition < offsetTop + offsetHeight
@@ -42,66 +46,79 @@ const Portfolio = () => {
       }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setMobileMenuOpen(false);
-    }
-  };
 
-  const router = useRouter();
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+
+    setMobileMenuOpen(false);
+  };
 
   const handleCardClick = (project: Project) => {
     router.push(`/projects/${project.id}`);
   };
 
+  const navItems = [
+    // { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
+
   return (
-    <div className="bg-gradient-to-t from-neutral-900 via-neutral-800 to-neutral-900 text-neutral-50 min-h-screen">
+    <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-gold selection:text-neutral-950">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-500  bg-neutral-900/90 backdrop-blur-sm shadow-xl">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <div className="font-semibold text-lg text-gold tracking-tight">
-            Lesuuh
-          </div>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center space-x-6">
-            {["hero", "about", "works", "projects", "contact"].map(
-              (section) => (
-                <button
-                  key={section}
-                  onClick={() => scrollToSection(section)}
-                  className={`text-sm transition-colors relative group ${
-                    activeSection === section
-                      ? `text-gold-active font-medium` // Active link text in gold
-                      : "text-neutral-300 hover:text-neutral-200"
-                  }`}
-                >
-                  {section.charAt(0).toUpperCase() + section.slice(1)}
-                  {/* Active Indicator - Gold Bar */}
-                  {activeSection === section && (
-                    <span
-                      className={`absolute -bottom-1 left-0 right-0 h-0.5 bg-gold-active rounded-full`}
-                    ></span>
-                  )}
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-transparent group-hover:bg-neutral-700 transition-colors duration-300 opacity-50"></span>
-                </button>
-              ),
-            )}
-          </div>
-
-          {/* Mobile Menu Button */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-neutral-800/70 bg-neutral-950/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-neutral-300 p-2"
+            onClick={() => scrollToSection("home")}
+            className="text-lg font-bold tracking-tight text-gold transition-opacity hover:opacity-80"
+          >
+            Lesuuh
+          </button>
+
+          {/* Desktop navigation */}
+          <div className="hidden items-center gap-7 md:flex">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative py-1 text-sm transition-colors ${
+                  activeSection === item.id
+                    ? "font-medium text-gold"
+                    : "text-neutral-400 hover:text-neutral-100"
+                }`}
+              >
+                {item.label}
+
+                {activeSection === item.id && (
+                  <span className="absolute -bottom-2 left-0 right-0 mx-auto h-0.5 w-4 rounded-full bg-gold" />
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="rounded-lg p-2 text-neutral-300 transition-colors hover:bg-neutral-800 hover:text-white md:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
             <svg
-              className="w-6 h-6"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -120,121 +137,104 @@ const Portfolio = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-neutral-700/40 bg-neutral-950">
-            <div className="px-4 py-4 space-y-3">
-              {["hero", "about", "works", "projects", "contact"].map(
-                (section) => (
-                  <button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
-                    className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                      activeSection === section
-                        ? "text-white bg-neutral-800 font-medium"
-                        : "text-neutral-300"
-                    }`}
-                  >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
-                  </button>
-                ),
-              )}
+          <div className="border-t border-neutral-800 bg-neutral-950 md:hidden">
+            <div className="mx-auto max-w-6xl space-y-1 px-4 py-4 sm:px-6">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full rounded-lg px-4 py-3 text-left text-sm transition-colors ${
+                    activeSection === item.id
+                      ? "bg-neutral-800 text-gold"
+                      : "text-neutral-300 hover:bg-neutral-900 hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </div>
         )}
       </nav>
 
-      <main className="pt-16">
-        {/* Hero Section */}
+      <main>
+        {/* =========================================================
+            HERO
+        ========================================================= */}
         <section
-          id="hero"
-          className="min-h-screen flex items-center justify-center px-4 sm:px-6 py-12 sm:py-20"
+          id="home"
+          className="relative flex min-h-screen items-center overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8"
         >
-          <div className="max-w-2xl mx-auto w-full">
-            {/* Profile Image - Mobile First */}
-            <div className="flex justify-center mb-8">
-              <div className="relative">
-                <div className="absolute inset-0 bg-hero-glow pointer-events-none"></div>
+          {/* Subtle background glow */}
+          <div className="pointer-events-none absolute left-1/2 top-1/3 h-96 w-96 -translate-x-1/2 rounded-full bg-gold/5 blur-3xl" />
 
-                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-neutral-700/40 shadow-xl relative">
-                  <Image
-                    src="/images/me.webp"
-                    alt="Lesuuh Ueh-Kabari"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 8rem, 10rem"
-                    priority
-                  />
-                </div>
-                <div className="absolute bottom-4 right-1 bg-gold w-8 h-8 rounded-full border-4 border-neutral-950 flex items-center justify-center">
-                  <div className="w-2 h-2 bg-neutral-950 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Hero Content */}
-            <div className="text-center space-y-6">
-              <div className="space-y-3">
-                <p className="text-sm sm:text-base text-neutral-300 font-medium">
+          <div className="relative mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
+            {/* Hero copy */}
+            <div className="order-2 text-center lg:order-1 lg:text-left">
+              <div className="mb-6 flex items-center justify-center gap-3 lg:justify-start">
+                <span className="h-px w-8 bg-gold" />
+                <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
                   Frontend Developer
-                </p>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gold leading-tight">
-                  Lesuuh Ueh-Kabari
-                </h1>
-                <div className="flex items-center justify-center space-x-3">
-                  <div className="h-px w-12 bg-gold"></div>
-                  <p className="text-base sm:text-lg ">
-                    Building Production-Ready Solutions
-                  </p>
-                  <div className="h-px w-12 bg-gold"></div>
-                </div>
+                </span>
               </div>
 
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-xl mx-auto">
-                I build fast, scalable web applications that solve real
-                problems. From government exam systems to AI-powered platforms,
-                I turn complex requirements into clean, production-ready code.
+              <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                I build{" "}
+                <span className="text-gold">reliable web applications</span>{" "}
+                that solve real problems.
+              </h1>
+
+              <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-neutral-400 sm:text-lg lg:mx-0 lg:text-xl lg:leading-8">
+                I&apos;m Lesuuh, a frontend developer focused on React,
+                TypeScript, and Next.js. I turn complex requirements into
+                intuitive interfaces and production-ready applications.
               </p>
 
-              {/* Status Badge */}
-              <div className="flex items-center justify-center space-x-2 text-sm ">
-                <div className="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
-                <span>Available for hire and projects</span>
+              {/* Availability */}
+              <div className="mt-6 flex items-center justify-center gap-2 text-sm text-neutral-300 lg:justify-start">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-gold" />
+                <span>Open to frontend and full-stack opportunities</span>
               </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+              {/* CTA */}
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
                 <Button
                   onClick={() => scrollToSection("projects")}
-                  className="group shadow-lg bg-gold text-neutral-950 hover:bg-gold-hover"
+                  className="group bg-gold text-neutral-950 shadow-lg shadow-gold/10 hover:bg-gold-hover"
                 >
                   View My Work
-                  <ArrowDown className="w-4 h-4 ml-2 group-hover:translate-y-0.5 transition-transform" />
+                  <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-0.5" />
                 </Button>
+
                 <a
                   href="/_1lesuuhCV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className=""
                 >
                   <Button
                     variant="white"
-                    className="w-full  group text-neutral-950 "
+                    className="w-full border border-neutral-700 bg-transparent text-neutral-100 hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
                   >
-                    <Download className="w-4 h-4 mr-2 group-hover:scale-105 transition-transform" />
-                    Download Resume
+                    <Download className="mr-2 h-4 w-4" />
+                    Resume
                   </Button>
                 </a>
               </div>
 
-              {/* Tech Stack */}
-              <div className="pt-8">
-                <p className="text-xs sm:text-sm text-neutral-400 mb-3 uppercase tracking-wide">
-                  Tech Stack
+              {/* Tech stack */}
+              <div className="mt-10 border-t border-neutral-800 pt-7">
+                <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-neutral-500">
+                  Core stack
                 </p>
-                <div className="flex flex-wrap justify-center gap-2">
+
+                <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
                   {heroTechStack.map((tech) => (
-                    <Badge key={tech} className="text-xs sm:text-sm">
+                    <Badge
+                      key={tech}
+                      className="border-neutral-700 bg-neutral-900 text-xs text-neutral-300"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -242,186 +242,266 @@ const Portfolio = () => {
               </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="flex flex-col items-center mt-12 sm:mt-16 text-gold space-y-2">
-              <span className="text-xs uppercase tracking-wide">Scroll</span>
-              <div className="w-px h-8 bg-gold animate-pulse"></div>
+            {/* Profile image */}
+            <div className="order-1 flex justify-center lg:order-2">
+              <div className="relative">
+                <div className="absolute -inset-8 rounded-full bg-gold/5 blur-2xl" />
+
+                <div className="relative h-52 w-52  overflow-hidden rounded-full border border-neutral-700 bg-neutral-900 shadow-2xl sm:h-72 sm:w-72 lg:h-80 lg:w-80">
+                  <Image
+                    src="/images/me.webp"
+                    alt="Lesuuh Ueh-Kabari"
+                    fill
+                    priority
+                    className="object-cover"
+                    // sizes="(max-width: 640px) 13rem, 16rem"
+                  />
+                </div>
+
+                <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border-4 border-neutral-950 bg-gold">
+                  <div className="h-2 w-2 rounded-full bg-neutral-950" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* About Section */}
+        {/* =========================================================
+            ABOUT
+        ========================================================= */}
         <section
           id="about"
-          className="py-16 sm:py-24 px-4 sm:px-6 bg-neutral-800/60"
+          className="border-y border-neutral-800/70 bg-neutral-900/40 px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
         >
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center text-gold">
-              About Me
-            </h2>
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+              <div>
+                <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                  About
+                </p>
 
-            <div className="space-y-6 text-neutral-100 leading-relaxed">
-              <p className="text-base sm:text-lg">
-                Frontend developer with experience building production
-                applications for diverse clients—from government agencies to
-                consumer platforms. I specialize in React, TypeScript, and
-                Next.js, with a track record of delivering performant,
-                accessible web applications.
-              </p>
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                  Building software with purpose.
+                </h2>
+              </div>
 
-              <div className="space-y-4 py-6">
-                <h3 className="text-xl font-semibold text-gold">
-                  What I bring:
-                </h3>
-                <div className="space-y-4 text-sm sm:text-base">
+              <div className="space-y-6">
+                <p className="text-base leading-8 text-neutral-300 sm:text-lg">
+                  I&apos;m a frontend developer focused on React, TypeScript,
+                  and Next.js. I enjoy taking complex product requirements and
+                  turning them into interfaces that are clear, responsive, and
+                  dependable.
+                </p>
+
+                <p className="text-base leading-8 text-neutral-400">
+                  My experience spans examination platforms, P2P payment
+                  systems, gaming platforms, and full-stack products. I care
+                  about clean architecture, thoughtful state management,
+                  performance, and building features that work beyond the happy
+                  path.
+                </p>
+
+                <div className="grid gap-3 pt-3 sm:grid-cols-2">
                   {[
                     {
-                      title: "Full-stack capability",
-                      desc: "Complete features from database to UI",
+                      title: "Frontend",
+                      desc: "React, TypeScript, Next.js, responsive UI",
                     },
                     {
-                      title: "Performance-focused",
-                      desc: "Optimized bundles, code splitting, fast load times",
+                      title: "State & Data",
+                      desc: "React Query, Zustand, Context API, APIs",
                     },
                     {
-                      title: "Real-world experience",
-                      desc: "Exam systems, real-time platforms, complex flows",
+                      title: "Backend",
+                      desc: "Node.js, Express, Supabase, Firebase",
                     },
                     {
-                      title: "Production-ready",
-                      desc: "Clean architecture, proper error handling",
+                      title: "Engineering",
+                      desc: "Performance, reusable architecture, UX",
                     },
-                  ].map((item, i) => (
+                  ].map((item) => (
                     <div
-                      key={i}
-                      className="flex items-start space-x-3 p-3 rounded-lg bg-neutral-850/40"
+                      key={item.title}
+                      className="rounded-xl border border-neutral-800 bg-neutral-950/50 p-4"
                     >
-                      <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 flex-shrink-0"></div>
-                      <div>
-                        <span className="font-semibold">{item.title}:</span>{" "}
-                        <span className="text-neutral-200">{item.desc}</span>
-                      </div>
+                      <h3 className="font-semibold text-neutral-100">
+                        {item.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-6 text-neutral-500">
+                        {item.desc}
+                      </p>
                     </div>
                   ))}
                 </div>
+
+                <p className="border-t border-neutral-800 pt-5 text-sm text-neutral-500">
+                  Based in Port Harcourt, Nigeria · Available for remote
+                  opportunities
+                </p>
+              </div>
+            </div>
+
+            {/* Skills */}
+            <div className="mt-16 border-t border-neutral-800 pt-10">
+              <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="text-sm font-medium uppercase tracking-[0.18em] text-gold">
+                    Toolkit
+                  </p>
+                  <h3 className="mt-1 text-xl font-semibold">
+                    Technologies I work with
+                  </h3>
+                </div>
               </div>
 
-              <p className="text-sm text-neutral-300 pt-4 border-t border-neutral-700/40">
-                📍 Based in Port Harcourt, Nigeria • Available for remote
-                opportunities
-              </p>
-
-              {/* Skills */}
-              <div className="pt-6">
-                <h3 className="text-lg font-semibold text-gold mb-4">
-                  Skills & Technologies
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant="outline"
-                      className="text-xs sm:text-sm border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="border-neutral-700 text-neutral-300 hover:border-gold hover:text-gold"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Work Section */}
-        <section id="works" className="py-20">
-          <div className="max-w-2xl mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center tracking-tight">
-              Work Experience
-            </h2>
+        {/* =========================================================
+            EXPERIENCE
+        ========================================================= */}
+        <section
+          id="experience"
+          className="px-4 py-20 sm:px-6 sm:py-28 lg:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 max-w-2xl">
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                Experience
+              </p>
 
-            <div className="space-y-8">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Where I&apos;ve worked.
+              </h2>
+
+              <p className="mt-4 leading-7 text-neutral-400">
+                Real product work, collaboration, and the engineering problems
+                behind the interfaces.
+              </p>
+            </div>
+
+            <div className="space-y-10">
               {experiences.map((exp, i) => (
-                <div key={i} className="group">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-lg md:text-xl font-semibold text-gold group-hover:text-gold-hover transition-colors">
-                      {exp.role}
-                    </h3>
-                    <span className="text-xs md:text-sm text-neutral-500">
-                      {exp.period}
-                    </span>
+                <div
+                  key={i}
+                  className="grid gap-6 border-t border-neutral-800 pt-8 md:grid-cols-[220px_1fr] md:gap-12"
+                >
+                  <div>
+                    <p className="text-sm text-neutral-500">{exp.period}</p>
                   </div>
 
-                  <p className="text-sm font-medium text-neutral-300 mb-2">
-                    {exp.company}
-                  </p>
+                  <div>
+                    <div className="mb-6">
+                      <h3 className="text-xl font-semibold text-neutral-100 sm:text-2xl">
+                        {exp.role}
+                      </h3>
 
-                  <ul className="space-y-1 text-sm text-neutral-400 leading-relaxed">
-                    {exp.description.map((d, j) => (
-                      <li
-                        key={j}
-                        className="pl-3 relative before:content-['–'] before:absolute before:left-0 before:text-gold/70"
-                      >
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
+                      <p className="mt-1 font-medium text-gold">
+                        {exp.company}
+                      </p>
+                    </div>
+
+                    <ul className="space-y-4">
+                      {exp.description.map((description, j) => (
+                        <li
+                          key={j}
+                          className="relative pl-5 text-sm leading-7 text-neutral-400 sm:text-base"
+                        >
+                          <span className="absolute left-0 top-3 h-1.5 w-1.5 rounded-full bg-gold" />
+                          {description}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section id="projects" className="py-16 sm:py-24 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gold">
-                Featured Projects
+        {/* =========================================================
+            PROJECTS
+        ========================================================= */}
+        <section
+          id="projects"
+          className="border-y border-neutral-800/70 bg-neutral-900/40 px-4 py-20 sm:px-6 sm:py-28 lg:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 max-w-2xl">
+              <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+                Selected Work
+              </p>
+
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                Projects that demonstrate how I build.
               </h2>
-              <p className="text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto">
-                Production applications showcasing full-stack capabilities and
-                problem-solving skills.
+
+              <p className="mt-4 leading-7 text-neutral-400">
+                A selection of applications built around real workflows, product
+                requirements, and technical challenges.
               </p>
             </div>
 
-            <div className="space-y-6">
-              {featuredProjects.map((project) => (
+            <div className="space-y-8">
+              {featuredProjects.map((project, index) => (
                 <Card
                   key={project.id}
                   onClick={() => handleCardClick(project)}
-                  className="group overflow-hidden hover:border-gold transition-all duration-300 cursor-pointer"
+                  className="group cursor-pointer overflow-hidden border-neutral-800 bg-neutral-950 transition-all duration-300 hover:border-gold/60"
                 >
-                  <div className="grid sm:grid-cols-2 gap-0">
-                    {/* Image Section */}
-                    <div className="relative aspect-video sm:aspect-square bg-neutral-800 overflow-hidden">
+                  <div className="grid md:grid-cols-[1.05fr_0.95fr]">
+                    {/* Project image */}
+                    <div className="relative aspect-video overflow-hidden bg-neutral-900 md:aspect-auto md:min-h-[360px]">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 55vw"
                       />
-                      {/* <div className="absolute top-3 left-3">
-                        <Badge className="bg-gold  text-xs">
-                          {project.category}
-                        </Badge>
-                      </div> */}
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent" />
+
+                      <div className="absolute left-5 top-5">
+                        <span className="rounded-full border border-neutral-700 bg-neutral-950/80 px-3 py-1 text-xs font-medium text-neutral-300 backdrop-blur">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
                     </div>
 
-                    {/* Info Section */}
-                    <div className="p-6 flex flex-col justify-between">
-                      <div className="space-y-3">
-                        <h3 className="text-xl sm:text-2xl font-bold text-gold group-hover:text-gold-hover transition-colors">
-                          {project.title}
-                        </h3>
-                        <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+                    {/* Project information */}
+                    <div className="flex flex-col justify-between p-6 sm:p-8">
+                      <div>
+                        <div className="mb-4 flex items-start justify-between gap-4">
+                          <h3 className="text-2xl font-bold tracking-tight text-neutral-100 transition-colors group-hover:text-gold sm:text-3xl">
+                            {project.title}
+                          </h3>
+
+                          <ExternalLink className="mt-1 h-5 w-5 shrink-0 text-neutral-600 transition-colors group-hover:text-gold" />
+                        </div>
+
+                        <p className="leading-7 text-neutral-400">
                           {project.description}
                         </p>
-                        <div className="flex flex-wrap gap-1.5 pt-2">
+
+                        <div className="mt-6 flex flex-wrap gap-2">
                           {project.tech.map((tech) => (
                             <Badge
                               key={tech}
                               variant="outline"
-                              className="text-xs border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
+                              className="border-neutral-700 text-xs text-neutral-400"
                             >
                               {tech}
                             </Badge>
@@ -429,7 +509,20 @@ const Portfolio = () => {
                         </div>
                       </div>
 
-                      <div className="flex gap-3 pt-4">
+                      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <Button className="w-full bg-gold text-neutral-950 hover:bg-gold-hover">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            Live Demo
+                          </Button>
+                        </a>
+
                         <a
                           href={project.github}
                           target="_blank"
@@ -438,28 +531,11 @@ const Portfolio = () => {
                           onClick={(e) => e.stopPropagation()}
                         >
                           <Button
-                            variant="primary"
-                            size="sm"
-                            className="w-full border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
-                          >
-                            <Github className="w-3.5 h-3.5 mr-1.5" />
-                            Code
-                          </Button>
-                        </a>
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex-1"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <Button
-                            size="sm"
                             variant="white"
-                            className="w-full bg-gold text-neutral-950 hover:bg-gold-hover"
+                            className="w-full border border-neutral-700 bg-transparent text-neutral-200 hover:border-neutral-500 hover:bg-neutral-900"
                           >
-                            <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
-                            Live Demo
+                            <Github className="mr-2 h-4 w-4" />
+                            View Code
                           </Button>
                         </a>
                       </div>
@@ -471,27 +547,34 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section
-          id="contact"
-          className="py-16 sm:py-24 px-4 sm:px-6 bg-neutral-800/60"
-        >
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gold">
-              Let&apos;s Work Together
-            </h2>
-            <p className="text-neutral-300 text-base sm:text-lg mb-8 sm:mb-12 max-w-xl mx-auto">
-              Have a project in mind? I&apos;m available for freelance work and
-              full-time opportunities.
+        {/* =========================================================
+            CONTACT
+        ========================================================= */}
+        <section id="contact" className="px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-4xl text-center">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+              Contact
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              Let&apos;s build something useful.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-neutral-400 sm:text-lg sm:leading-8">
+              I&apos;m currently open to frontend and full-stack opportunities.
+              If you&apos;re looking for someone who can turn product
+              requirements into reliable interfaces and features, let&apos;s
+              talk.
+            </p>
+
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <a href="mailto:lesuuh01@gmail.com">
-                <Button className="w-full sm:w-auto min-w-[200px] bg-gold text-neutral-950 hover:bg-gold-hover">
-                  <Mail className="w-4 h-4 mr-2" />
+                <Button className="w-full min-w-[180px] bg-gold text-neutral-950 hover:bg-gold-hover sm:w-auto">
+                  <Mail className="mr-2 h-4 w-4" />
                   Email Me
                 </Button>
               </a>
+
               <a
                 href="/_1lesuuhCV.pdf"
                 target="_blank"
@@ -499,45 +582,52 @@ const Portfolio = () => {
               >
                 <Button
                   variant="white"
-                  className="w-full sm:w-auto min-w-[200px] border-gold text-gold hover:bg-gold-hover hover:text-neutral-950"
+                  className="w-full min-w-[180px] border border-neutral-700 bg-transparent text-neutral-200 hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
                 >
-                  <Download className="w-4 h-4 mr-2" />
-                  Download Resume
+                  <Download className="mr-2 h-4 w-4" />
+                  Resume
                 </Button>
               </a>
             </div>
 
-            {/* Social Links */}
-            <div className="flex justify-center gap-6 mt-12 pt-12 border-t border-gold/40">
+            {/* Social links */}
+            <div className="mt-14 flex justify-center gap-5">
               <a
                 href="mailto:lesuuh01@gmail.com"
-                className="text-white hover:text-gold-hover transition-colors"
+                className="rounded-lg border border-neutral-800 p-3 text-neutral-400 transition-all hover:border-gold hover:text-gold"
+                aria-label="Email"
               >
-                <Mail className="w-6 h-6" />
+                <Mail className="h-5 w-5" />
               </a>
+
               <a
                 href="https://github.com/lesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gold-hover transition-colors"
+                className="rounded-lg border border-neutral-800 p-3 text-neutral-400 transition-all hover:border-gold hover:text-gold"
+                aria-label="GitHub"
               >
-                <Github className="w-6 h-6" />
+                <Github className="h-5 w-5" />
               </a>
+
               <a
                 href="https://twitter.com/UKLesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gold-hover transition-colors"
+                className="rounded-lg border border-neutral-800 p-3 text-neutral-400 transition-all hover:border-gold hover:text-gold"
+                aria-label="Twitter"
               >
-                <Twitter className="w-6 h-6" />
+                <Twitter className="h-5 w-5" />
               </a>
+
               <a
                 href="https://www.linkedin.com/in/uklesuuh"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-gold-hover transition-colors"
+                className="rounded-lg border border-neutral-800 p-3 text-neutral-400 transition-all hover:border-gold hover:text-gold"
+                aria-label="LinkedIn"
               >
-                <LinkedIn className="w-6 h-6" />
+                <LinkedIn className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -545,11 +635,18 @@ const Portfolio = () => {
       </main>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 border-t border-gold/40">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gold text-sm">
-            © 2025 Lesuuh Ueh-Kabari. All rights reserved.
+      <footer className="border-t border-neutral-800 px-4 py-7 sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+          <p className="text-sm text-neutral-500">
+            © 2026 Lesuuh Ueh-Kabari. All rights reserved.
           </p>
+
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-sm text-neutral-500 transition-colors hover:text-gold"
+          >
+            Back to top ↑
+          </button>
         </div>
       </footer>
     </div>

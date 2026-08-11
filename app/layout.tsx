@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Lesuuh",
     images: [
       {
-        url: "/portfolio-pic.jpg",
+        url: "/images/me.webp",
         width: 1200,
         height: 630,
         alt: "Lesuuh Portfolio Preview",
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lesuuh | Frontend Developer",
     description: "Check out my latest frontend work using React and Next.js.",
-    images: ["/portfolio-pic.jpg"],
+    images: ["/images/me.webp"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

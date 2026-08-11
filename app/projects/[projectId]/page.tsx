@@ -3,9 +3,8 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { projects } from "@/app/data";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, notFound } from "next/navigation";
 import {
-  AlertCircle,
   ArrowLeft,
   Github,
   ExternalLink,
@@ -18,7 +17,7 @@ const ProjectDetail = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
-  const project = projects.find((p) => p.id === Number(projectId));
+  const project = projects.find((p) => p.slug === projectId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,31 +25,7 @@ const ProjectDetail = () => {
   }, []);
 
   if (!project) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-neutral-950 px-4 text-neutral-100">
-        <div className="w-full max-w-md rounded-2xl border border-neutral-800 bg-neutral-900 p-8 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-red-500/20 bg-red-500/10">
-            <AlertCircle className="h-6 w-6 text-red-400" />
-          </div>
-
-          <h1 className="mt-5 text-xl font-bold text-white">
-            Project Not Found
-          </h1>
-
-          <p className="mt-2 text-sm leading-6 text-neutral-500">
-            The project you&apos;re looking for could not be found.
-          </p>
-
-          <button
-            onClick={() => router.back()}
-            className="mt-6 inline-flex items-center rounded-lg border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-200 transition-colors hover:border-neutral-500 hover:bg-neutral-800"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Go Back
-          </button>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const hasChallenges =
@@ -158,7 +133,7 @@ const ProjectDetail = () => {
         {/* =========================================================
             PROJECT CONTENT
         ========================================================= */}
-        <main className="px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
+        <div className="px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
           <div className="mx-auto max-w-6xl">
             {/* Project metadata */}
             <section className="mb-16 grid border-y border-neutral-800 py-7 sm:grid-cols-3 sm:divide-x sm:divide-neutral-800">
@@ -454,7 +429,7 @@ const ProjectDetail = () => {
               </article>
             </div>
           </div>
-        </main>
+        </div>
       </main>
 
       {/* =========================================================

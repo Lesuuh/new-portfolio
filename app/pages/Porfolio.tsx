@@ -73,7 +73,7 @@ const Portfolio = () => {
   };
 
   const handleCardClick = (project: Project) => {
-    router.push(`/projects/${project.id}`);
+    router.push(`/projects/${project.slug}`);
   };
 
   const navItems = [
@@ -164,7 +164,7 @@ const Portfolio = () => {
                     scrollToSection(item.id);
                     setMobileMenuOpen(false);
                   }}
-                  className={`block w-full rounded-xl px-6 py-4 text-center text-2xl cursor-pointers font-medium transition-colors ${activeSection === item.id ? "bg-neutral-800 text-amber-400" : "text-neutral-300 hover:bg-neutral-800 hover:text-white"}`}
+                  className={`block w-full rounded-xl px-6 py-4 text-center text-2xl cursor-pointer font-medium transition-colors ${activeSection === item.id ? "bg-neutral-800 text-amber-400" : "text-neutral-300 hover:bg-neutral-800 hover:text-white"}`}
                 >
                   {" "}
                   {item.label}{" "}
@@ -174,7 +174,8 @@ const Portfolio = () => {
             {/* Footer */}{" "}
             <div className="absolute bottom-0 pb-4  text-center text-xs text-neutral-500">
               {" "}
-              © {new Date().getFullYear()} Brand. All rights reserved.{" "}
+              © {new Date().getFullYear()} Lesuuh Ueh-Kabari. All rights
+              reserved.{" "}
             </div>{" "}
           </div>
         )}
@@ -267,6 +268,10 @@ const Portfolio = () => {
 
             {/* Profile image */}
             <div className="order-1 flex justify-center lg:order-2">
+              {/* =================================================
+                  OLD CIRCLE AVATAR (kept for reference)
+              ================================================= */}
+              {/*
               <div className="relative">
                 <div className="absolute -inset-8 rounded-full bg-gold/5 blur-2xl" />
 
@@ -283,6 +288,27 @@ const Portfolio = () => {
 
                 <div className="absolute bottom-3 right-3 flex h-9 w-9 items-center justify-center rounded-full border-4 border-neutral-950 bg-gold">
                   <div className="h-2 w-2 rounded-full bg-neutral-950" />
+                </div>
+              </div>
+              */}
+
+              {/* =================================================
+                  OVERLAPPING SQUARE FRAMES
+              ================================================= */}
+              <div className="relative h-52 w-52 sm:h-72 sm:w-72 lg:h-80 lg:w-80">
+                {/* Back square */}
+                <div className="absolute inset-0 rotate-6 rounded-2xl border border-neutral-700 bg-neutral-900/80 shadow-xl transition-transform duration-500 hover:rotate-12" />
+
+                {/* Top square with image */}
+                <div className="absolute inset-0 -rotate-3 overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-900 shadow-2xl transition-transform duration-500 hover:-rotate-6">
+                  <Image
+                    src="/images/me.webp"
+                    alt="Lesuuh Ueh-Kabari"
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 13rem, (max-width: 1024px) 18rem, 20rem"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </div>
@@ -431,9 +457,18 @@ const Portfolio = () => {
                         {exp.role}
                       </h3>
 
-                      <p className="mt-1 font-medium text-gold">
-                        {exp.company}
-                      </p>
+                      <div className="mt-1 flex items-center gap-2.5">
+                        <Image
+                          src="/images/musterbox-logo.png"
+                          alt="Musterbox logo"
+                          width={20}
+                          height={20}
+                          className="h-5 w-5 shrink-0"
+                        />
+                        <p className="font-medium text-gold">
+                          {exp.company}
+                        </p>
+                      </div>
                     </div>
 
                     <ul className="space-y-4">

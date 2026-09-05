@@ -480,6 +480,131 @@ export const projects: Project[] = [
     category: "Real Estate / UI",
     timeline: "2 weeks",
   },
+
+  {
+    id: 5,
+    title: "Knot",
+    slug: "knot-url-shortener",
+    subtitle: "Fast, self-hosted URL shortener with custom aliases and auto-expiry",
+
+    description:
+      "A full-stack URL shortener with accounts, custom aliases, automatic link expiry, and a dashboard for managing links with copy, QR codes, and CSV export.",
+
+    overview:
+      "I built Knot as a privacy-focused URL shortener with a real product surface: an Express + PostgreSQL API, a React dashboard for managing links, and a marketing site with a working shorten demo. The project is organized as an npm-workspaces monorepo with a shared package for design tokens and formatting utilities.",
+
+    problemStatement:
+      "Typical URL shorteners offer little control over the final link, no ownership model, and no way to retire links that should not live forever.",
+
+    solution:
+      "Built a self-hostable shortener where every link is tied to the account that created it, supports globally-unique custom aliases, expires automatically after its tier's window, and can be managed from a dashboard with copy, open, QR code, and CSV export actions.",
+
+    keyFeatures: [
+      {
+        title: "Custom Short Links",
+        description:
+          "Creates short codes or accepts globally-unique custom aliases (3–32 chars) that resolve with a 302 redirect.",
+      },
+      {
+        title: "Auto-Expiry",
+        description:
+          "Links expire 30 days after creation (6 months for PRO users); expired and dead codes are handled and surfaced in the UI.",
+      },
+      {
+        title: "Accounts & Privacy",
+        description:
+          "Links are associated with the creating account and listed only for the owner, with no analytics or tracking pixels.",
+      },
+      {
+        title: "Link Dashboard",
+        description:
+          "Provides search, tabbed views, copy, open, delete-with-confirmation, QR codes, and CSV export for saved links.",
+      },
+      {
+        title: "Email Authentication",
+        description:
+          "Supports register, login, forgot/reset/change password, and account deletion with transactional email via Resend.",
+      },
+      {
+        title: "Marketing Site with Live Demo",
+        description:
+          "Landing page includes a working shorten widget that calls the API and deep-links into the app with the URL pre-filled.",
+      },
+    ],
+
+    technicalHighlights: [
+      {
+        title: "Express 5 & Prisma",
+        description:
+          "Backend API on Express with PostgreSQL accessed through Prisma 7 and the PrismaPg adapter, organized as a workspaces monorepo.",
+      },
+      {
+        title: "JWT Session Authentication",
+        description:
+          "Uses bcrypt-hashed passwords and short-lived JWTs in httpOnly, cross-site cookies with rate limiting on auth and link routes.",
+      },
+      {
+        title: "Redirect Engine",
+        description:
+          "Resolves short codes and custom aliases to their destinations with 302 redirects, expiry checks, and branded dead-link handling.",
+      },
+      {
+        title: "React 19 Dashboard",
+        description:
+          "Vite + React SPA with QR code generation and client-side CSV export, sharing design tokens with the marketing site via a shared package.",
+      },
+    ],
+
+    challenges: [
+      {
+        title: "Cross-Origin Cookie Sessions",
+        description:
+          "The app on Vercel and the API on Render are separate origins, so the session cookie had to survive cross-site requests.",
+        solution:
+          "Signed JWTs stored in httpOnly cookies configured with SameSite=None and an explicit CORS allowlist for the frontend origins.",
+      },
+      {
+        title: "Coherent Link Management",
+        description:
+          "The dashboard needed search, tabs, QR codes, CSV export, and deletion to feel like one feature rather than several disconnected widgets.",
+        solution:
+          "Centralized link state and actions, and kept the list, custom-alias, and expiry states synchronized across the interface.",
+      },
+      {
+        title: "Single-Origin Integrated Deployment",
+        description:
+          "The stack could run as three origins or as one Express server serving the API and both built frontends.",
+        solution:
+          "Added a SERVE_FRONTEND mode so Express serves the landing site, the app SPA, and the API from one origin while keeping Vercel/Render split deploys intact.",
+      },
+    ],
+
+    impact: [
+      "Delivers a complete self-hosted URL-shortening product spanning authentication, database design, an API, and two frontend applications.",
+      "Demonstrates a production monorepo architecture with shared packages, separate deploy targets, and an end-to-end test suite.",
+      "Shows practical engineering of privacy-first defaults, custom aliases, auto-expiry, and dashboard tooling in a deployed product.",
+    ],
+
+    tech: [
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "JWT",
+    ],
+
+    image: "/images/knot.webp",
+    github: "https://github.com/Lesuuh/url-shortener",
+    live: "https://knot-links.vercel.app",
+    role: "Full-Stack Developer",
+    status: "Completed",
+    featured: true,
+    category: "SaaS / Tool",
+    timeline: "—",
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

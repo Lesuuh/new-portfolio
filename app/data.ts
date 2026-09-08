@@ -485,7 +485,8 @@ export const projects: Project[] = [
     id: 5,
     title: "Knot",
     slug: "knot-url-shortener",
-    subtitle: "Fast, self-hosted URL shortener with custom aliases and auto-expiry",
+    subtitle:
+      "Fast, self-hosted URL shortener with custom aliases and auto-expiry",
 
     description:
       "A full-stack URL shortener with accounts, custom aliases, automatic link expiry, and a dashboard for managing links with copy, QR codes, and CSV export.",
@@ -716,7 +717,7 @@ export const projects: Project[] = [
     ],
     image: "/images/q-studios.png",
     github: "https://github.com/Lesuuh/Q-Studios",
-    live: "",
+    live: "https://q-studios-five.vercel.app/",
     role: "Frontend Developer",
     status: "Completed",
     featured: true,
